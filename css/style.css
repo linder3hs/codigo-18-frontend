@@ -79,3 +79,30 @@ main {
   height: 350px;
   border-radius: 50%;
 }
+
+.container-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: end;
+}
+
+.container-contact > a {
+  text-decoration: none;
+  color: rgba(123, 74, 226, 0.5);
+}
+
+.container-contact > a:first-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.container-contact > a:last-child {
+  border: rgba(123, 74, 226, 0.5) solid;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 16px;
+}
