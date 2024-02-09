@@ -9,11 +9,14 @@ body {
   color: #fff;
 }
 
+.align-center {
+  align-items: center;
+}
+
 nav {
   display: flex;
   /* space-between: Separa elementos de extremo a extremo */
   justify-content: space-between;
-  align-items: center;
   background-color: rgba(123, 74, 226, 0.05);
   /* margin-top: 30px;
   margin-bottom: 30px;
@@ -71,7 +74,6 @@ main {
 .social-links {
   display: flex;
   gap: 15px;
-  align-items: center;
 }
 
 .container-profile > img {
@@ -94,14 +96,12 @@ main {
 
 .container-contact > a:first-child {
   display: flex;
-  align-items: center;
   gap: 5px;
 }
 
 .container-contact > a:last-child {
   border: rgba(123, 74, 226, 0.5) solid;
   display: flex;
-  align-items: center;
   gap: 5px;
   padding: 5px;
   border-radius: 16px;
