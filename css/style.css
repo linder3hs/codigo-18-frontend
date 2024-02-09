@@ -13,8 +13,11 @@ body {
   align-items: center;
 }
 
-nav {
+.flex {
   display: flex;
+}
+
+nav {
   /* space-between: Separa elementos de extremo a extremo */
   justify-content: space-between;
   background-color: rgba(123, 74, 226, 0.05);
@@ -28,7 +31,6 @@ nav {
 }
 
 .nav-list {
-  display: flex;
   list-style: none;
   /* espacio entre cada elemento del contenedor */
   gap: 20px;
@@ -45,10 +47,8 @@ nav {
 
 main {
   height: 50vh;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 30px;
+  padding: 30px 80px;
 }
 
 .gretting {
@@ -105,4 +105,32 @@ main {
   gap: 5px;
   padding: 5px;
   border-radius: 16px;
+}
+
+.container-about-me {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 80px;
+}
+
+.container-about-me > div > img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.container-about-me > div > h2 {
+  font-size: 48px;
+}
+
+.container-about-me > div > p {
+  color: rgba(255, 255, 255, 0.5);
 }
