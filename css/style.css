@@ -5,23 +5,26 @@
 
 body {
   font-family: Helvetica, sans-serif;
+  background-color: #090e16;
+  color: #fff;
 }
 
 nav {
-  border: solid red;
   display: flex;
   /* space-between: Separa elementos de extremo a extremo */
   justify-content: space-between;
-  background-color: rgba(123, 74, 226, 0.5);
+  align-items: center;
+  background-color: rgba(123, 74, 226, 0.05);
   /* margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 80px;
   margin-right: 80px; */
   margin: 30px 80px;
+  padding: 15px;
+  border-radius: 16px;
 }
 
 .nav-list {
-  border: solid green;
   display: flex;
   list-style: none;
   /* espacio entre cada elemento del contenedor */
@@ -31,4 +34,23 @@ nav {
 .nav-list > li > a {
   text-decoration: none;
   color: #fff;
+}
+
+.nav-list > li > a:hover {
+  color: rgba(123, 74, 226, 0.5);
+}
+
+main {
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.gretting {
+  background-color: rgba(123, 74, 226, 0.05);
+  color: rgba(123, 74, 226, 0.5);
+  padding: 8px;
+  border-radius: 16px;
 }
