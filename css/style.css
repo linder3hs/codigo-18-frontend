@@ -54,3 +54,28 @@ main {
   padding: 8px;
   border-radius: 16px;
 }
+
+.title {
+  font-size: 52px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.container-profile > img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
