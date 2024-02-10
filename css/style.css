@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Raleway", sans-serif;
   background-color: #090e16;
   color: #fff;
 }
@@ -15,6 +15,10 @@ body {
 
 .flex {
   display: flex;
+}
+
+.divider {
+  border: rgba(123, 74, 226, 0.2) solid 0.5px;
 }
 
 nav {
@@ -105,6 +109,35 @@ main {
   gap: 5px;
   padding: 5px;
   border-radius: 16px;
+}
+
+.container-cards {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.container-cards > div {
+  display: flex;
+  border: solid rgba(123, 74, 226, 0.5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 246px;
+  height: 200px;
+  border-radius: 16px;
+}
+
+.container-cards > div > p {
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.container-cards > div > h5 {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .container-about-me {
