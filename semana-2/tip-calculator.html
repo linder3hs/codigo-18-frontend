@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reto 2 - Tip Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main>
@@ -11,15 +18,15 @@
       <form>
         <div>
           <div>
-            <label for="input-bill">Bill</label>
-            <div>
+            <label for="input-bill" class="text-title">Bill</label>
+            <div class="container-input">
               <img src="./images/icon-dollar.svg" alt="" />
               <input id="input-bill" type="text" placeholder="0" />
             </div>
           </div>
           <div>
-            <p>Select Tip %</p>
-            <div>
+            <p class="text-title">Select Tip %</p>
+            <div class="container-percentage">
               <button>5%</button>
               <button>10%</button>
               <button>15%</button>
@@ -29,8 +36,10 @@
             </div>
           </div>
           <div>
-            <label for="input-people">Number of people</label>
-            <div>
+            <label for="input-people" class="text-title"
+              >Number of people</label
+            >
+            <div class="container-input">
               <img src="./images/icon-person.svg" alt="" />
               <input id="input-people" type="text" placeholder="0" />
             </div>
