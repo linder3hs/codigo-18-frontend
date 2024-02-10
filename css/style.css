@@ -149,10 +149,22 @@ main {
   display: flex;
   justify-content: center;
   gap: 70px;
-  background-color: red;
-  border: solid green;
-  width: 878px;
+  background-color: rgba(123, 74, 226, 0.1);
+  width: 858px;
   margin: auto;
+  padding: 20px;
+  margin-bottom: 60px;
+  border-radius: 16px;
+  color: #7b4ae2;
+}
+
+.container-summary > div > p:first-child {
+  font-weight: 300;
+}
+
+.container-summary > div > p:last-child {
+  font-weight: bold;
+  font-size: 32px;
 }
 
 .container-summary > div {
