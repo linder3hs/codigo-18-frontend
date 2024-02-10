@@ -130,6 +130,11 @@ main {
   border-radius: 16px;
 }
 
+.container-cards > div:nth-child(2) {
+  background-color: rgba(123, 74, 226, 0.1);
+  border: none;
+}
+
 .container-cards > div > p {
   font-weight: 300;
   margin-top: 10px;
@@ -138,6 +143,21 @@ main {
 .container-cards > div > h5 {
   font-size: 32px;
   font-weight: bold;
+}
+
+.container-summary {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  background-color: red;
+  border: solid green;
+  width: 878px;
+  margin: auto;
+}
+
+.container-summary > div {
+  width: 246px;
+  text-align: center;
 }
 
 .container-about-me {
