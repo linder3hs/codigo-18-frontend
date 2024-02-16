@@ -74,12 +74,12 @@ h1 {
   padding: 16px;
 }
 
-.container-egg > h2 {
+.container-egg > div > h2 {
   font-size: 38px;
   margin-bottom: 15px;
 }
 
-.container-egg > p {
+.container-egg > div > p {
   font-size: 18px;
   line-height: 1.5;
   color: hsl(232, 10%, 55%);
@@ -144,6 +144,36 @@ h1 {
     text-transform: uppercase;
     font-weight: 600;
     font-size: 12px;
+  }
+
+  .section-egg {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 70vh;
+  }
+
+  .bg-egg {
+    flex: 1;
+    background: url("../assets/desktop/image-transform.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+  }
+
+  .container-egg {
+    flex: 1;
+    height: 100%;
+    padding: 0;
+  }
+
+  .container-egg > div {
+    display: block;
+    margin: auto;
+  }
+
+  .container-egg > div > * {
+    text-align: left;
   }
 }
 
