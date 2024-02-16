@@ -10,6 +10,7 @@ body {
 
 .font-barlow {
   font-family: "Barlow", sans-serif;
+  font-weight: 600;
 }
 
 .text-center {
@@ -28,6 +29,10 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.menu {
+  display: none;
 }
 
 main {
@@ -63,4 +68,85 @@ h1 {
 
 .container-egg {
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+}
+
+.container-egg > h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.container-egg > p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: hsl(232, 10%, 55%);
+}
+
+.link {
+  text-transform: uppercase;
+  margin-top: 20px;
+  display: block;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+/* sm */
+@media (min-width: 640px) {
+}
+
+/* md */
+@media (min-width: 768px) {
+}
+
+/* lg */
+@media (min-width: 1024px) {
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  main {
+    background: url("../assets/desktop/image-header.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .btn-menu {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    list-style: none;
+    font-family: "Barlow", sans-serif;
+  }
+
+  .menu > li > a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .menu > li:last-child {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 24px;
+  }
+
+  .menu > li:last-child > a {
+    color: #000;
+    font-family: "Fraunces";
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
 }
