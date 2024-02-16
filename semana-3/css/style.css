@@ -8,6 +8,14 @@ body {
   font-family: "Fraunces", sans-serif;
 }
 
+.font-barlow {
+  font-family: "Barlow", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .nav {
   background-color: rgb(62, 190, 255);
   display: flex;
@@ -34,13 +42,25 @@ h1 {
   color: #fff;
   text-align: center;
   text-transform: uppercase;
-  font-size: 70px;
-  padding-top: 100px;
+  font-size: 60px;
+  padding-top: 35px;
 }
 
 .arrow-down {
   display: block;
   margin: auto;
   height: 160px;
-  margin-top: 85px;
+  margin-top: 35px;
+}
+
+.bg-egg {
+  background: url("../assets/mobile/image-transform.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+}
+
+.container-egg {
+  height: 50vh;
 }
