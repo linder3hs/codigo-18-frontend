@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fraunces", sans-serif;
+}
+
+.nav {
+  background-color: rgb(62, 190, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  background: url("../assets/mobile/image-header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 70px;
+  padding-top: 100px;
+}
+
+.arrow-down {
+  display: block;
+  margin: auto;
+  height: 160px;
+  margin-top: 85px;
+}
