@@ -150,13 +150,13 @@ h1 {
   font-size: 26px;
   text-transform: uppercase;
   letter-spacing: 5px;
+  color: hsl(232, 10%, 55%);
 }
 
 .container-testimonials {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: solid;
 }
 
 .container-testimonials > div > img {
@@ -180,6 +180,7 @@ h1 {
 
 .container-testimonials > div > p {
   margin-top: 20px;
+  color: hsl(232, 10%, 55%);
 }
 
 /* sm */
