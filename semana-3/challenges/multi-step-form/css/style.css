@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  height: 100vh;
+}
+
+.container-1 {
+  height: 90vh;
+  overflow: auto;
+  background-color: aqua;
+}
+
+.container-2 {
+  height: 10vh;
+  background-color: brown;
+}
