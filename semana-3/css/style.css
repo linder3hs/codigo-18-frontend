@@ -54,6 +54,10 @@ body {
   display: none;
 }
 
+.text-xl {
+  font-size: 38px !important;
+}
+
 main {
   background: url("../assets/mobile/image-header.jpg");
   height: 70vh;
@@ -85,7 +89,6 @@ h1 {
 }
 
 .container-egg > div > h2 {
-  font-size: 38px;
   margin-bottom: 15px;
 }
 
@@ -106,6 +109,36 @@ h1 {
 
 .bg-cup {
   background: url("../assets/mobile/image-stand-out.jpg");
+}
+
+.bg-cherry {
+  background: url("../assets/mobile/image-graphic-design.jpg");
+  height: 80vh;
+  align-items: end;
+}
+
+.bg-cherry > div {
+  margin-bottom: 80px;
+  color: hsl(167, 40%, 24%);
+}
+
+.bg-cherry > div > h2 {
+  margin-bottom: 20px;
+}
+
+.bg-orange {
+  background: url("../assets/mobile/image-photography.jpg");
+  height: 80vh;
+  align-items: end;
+}
+
+.bg-orange > div {
+  margin-bottom: 80px;
+  color: hsl(167, 40%, 24%);
+}
+
+.bg-orange > div > h2 {
+  margin-bottom: 20px;
 }
 
 /* sm */
