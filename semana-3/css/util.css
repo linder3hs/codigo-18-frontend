@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+}
+
+.font-barlow {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat !important;
+}
+
+.bg-position-center {
+  background-position: center !important;
+}
+
+.bg-size-cover {
+  background-size: cover !important;
+}
+
+.h-50 {
+  height: 50vh !important;
+}
