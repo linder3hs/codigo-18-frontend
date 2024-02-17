@@ -189,6 +189,21 @@ h1 {
     brightness(45%) contrast(86%);
 }
 
+.footer-menu {
+  list-style: none;
+  gap: 20px;
+}
+
+.footer-menu > li > a {
+  color: #2c7564;
+}
+
+.footer-social-media {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 /* sm */
 @media (min-width: 640px) {
 }
