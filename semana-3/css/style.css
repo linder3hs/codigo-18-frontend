@@ -141,6 +141,47 @@ h1 {
   margin-bottom: 20px;
 }
 
+.section-testimonials {
+  padding-top: 60px;
+  background-color: #fffbf8;
+}
+
+.section-testimonials > h2 {
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.container-testimonials {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: solid;
+}
+
+.container-testimonials > div > img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+}
+
+.text-testimonial {
+  font-size: 18px;
+  width: 80%;
+  margin: auto;
+}
+
+.text-name-testimonial {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.container-testimonials > div > p {
+  margin-top: 20px;
+}
+
 /* sm */
 @media (min-width: 640px) {
 }
@@ -225,6 +266,26 @@ h1 {
     flex: 1;
     background: url("../assets/desktop/image-stand-out.jpg");
     height: 100% !important;
+  }
+
+  .container-fruit {
+    display: flex;
+  }
+
+  .container-fruit > section > div {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bg-cherry {
+    flex: 1;
+    background: url("../assets/desktop/image-graphic-design.jpg");
+  }
+
+  .bg-orange {
+    flex: 1;
+    background: url("../assets/desktop/image-photography.jpg");
   }
 }
 
