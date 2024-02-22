@@ -1,0 +1,73 @@
+@media (min-width: 1280px) {
+  main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eef5ff;
+  }
+
+  .container {
+    height: auto;
+    display: flex;
+    padding: 20px;
+    border-radius: 14px;
+    gap: 50px;
+    background-color: #fff;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .container-steps {
+    display: none;
+  }
+
+  .container-menu-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 40px;
+    background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
+    background-size: cover;
+    border-radius: 14px;
+    color: #fff;
+    background-position: center;
+  }
+
+  .container-menu-desktop > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .step-title {
+    font-size: 10px;
+    font-weight: 200;
+    display: block;
+  }
+
+  .step-info {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+  }
+
+  .container-info {
+    display: block;
+    position: static;
+    background-color: #fff;
+  }
+
+  .container-next-button-desktop {
+    position: relative;
+    display: block !important;
+  }
+
+  .container-next-button-desktop > button {
+    width: 100px;
+    position: absolute;
+    right: 0;
+  }
+}

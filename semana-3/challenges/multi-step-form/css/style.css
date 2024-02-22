@@ -23,6 +23,10 @@ main {
   background-color: #eef5ff;
 }
 
+.container-menu-desktop {
+  display: none;
+}
+
 .footer {
   height: 10vh;
   display: flex;
@@ -46,10 +50,10 @@ main {
   gap: 30px;
 }
 
-.container-steps > ul > li > button {
+.step-button {
   background-color: transparent;
   color: #fff;
-  border: solid #fff;
+  border: solid #fff 1px;
   padding: 10px;
   border-radius: 50%;
   width: 30px;
@@ -59,7 +63,7 @@ main {
   cursor: pointer;
 }
 
-.container-steps > ul > li > button:hover {
+.step-button:hover {
   color: #000;
   background-color: hsl(206, 94%, 87%);
   border: none;
@@ -112,7 +116,11 @@ main {
   border-radius: 4px;
 }
 
-.footer > button {
+.container-next-button-desktop {
+  display: none !important;
+}
+
+.next-button {
   background-color: hsl(213, 96%, 18%);
   color: #fff;
   border: none;

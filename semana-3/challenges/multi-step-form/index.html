@@ -6,6 +6,7 @@
     <title>Multi step form - challenge</title>
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/xl.css" />
   </head>
   <body>
     <main>
@@ -13,11 +14,49 @@
         <div class="container">
           <section class="container-steps">
             <ul>
-              <li><button>1</button></li>
-              <li><button>2</button></li>
-              <li><button>3</button></li>
-              <li><button>4</button></li>
+              <li><button class="step-button">1</button></li>
+              <li><button class="step-button">2</button></li>
+              <li><button class="step-button">3</button></li>
+              <li><button class="step-button">4</button></li>
             </ul>
+          </section>
+          <section class="container-menu-desktop">
+            <div>
+              <div>
+                <button class="step-button">1</button>
+              </div>
+              <div>
+                <span class="step-title">STEP 1</span>
+                <span class="step-info">YOUR INFO</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <button class="step-button">2</button>
+              </div>
+              <div>
+                <span class="step-title">STEP 2</span>
+                <span class="step-info">SELECT PLAN</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <button class="step-button">3</button>
+              </div>
+              <div>
+                <span class="step-title">STEP 3</span>
+                <span class="step-info">ADD-ONS</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <button class="step-button">4</button>
+              </div>
+              <div>
+                <span class="step-title">STEP 4</span>
+                <span class="step-info">SUMMARY</span>
+              </div>
+            </div>
           </section>
           <section class="container-info">
             <div>
@@ -50,12 +89,15 @@
                     placeholder="e.g. +1 234 567 890"
                   />
                 </div>
+                <div class="container-next-button-desktop">
+                  <button class="next-button">Next Step</button>
+                </div>
               </div>
             </div>
           </section>
         </div>
         <div class="footer">
-          <button>Next Step</button>
+          <button class="next-button">Next Step</button>
         </div>
       </form>
     </main>
