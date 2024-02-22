@@ -29,6 +29,7 @@
     flex-direction: column;
     gap: 35px;
     padding: 40px;
+    width: 300px;
     background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
     background-size: cover;
     border-radius: 14px;
