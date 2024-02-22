@@ -4,17 +4,95 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Ubuntu", system-ui, sans-serif;
+}
+
+input,
+button {
+  font-family: "Ubuntu", system-ui, sans-serif;
+}
+
 main {
   height: 100vh;
 }
 
-.container-1 {
+.container {
   height: 90vh;
   overflow: auto;
-  background-color: aqua;
+  background-color: #eef5ff;
 }
 
-.container-2 {
+.footer {
   height: 10vh;
-  background-color: brown;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 20px;
+}
+
+.container-steps {
+  background: url("../assets/images/bg-sidebar-mobile.svg") no-repeat;
+  background-size: cover;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.container-steps > ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.container-steps > ul > li > button {
+  background-color: transparent;
+  color: #fff;
+  border: solid #fff;
+  padding: 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.container-steps > ul > li > button:hover {
+  color: #000;
+  background-color: hsl(206, 94%, 87%);
+  border: none;
+}
+
+.container-info {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+}
+
+.container-info > div {
+  margin: auto;
+  padding: 12px;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.title {
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 15px;
+}
+
+.text {
+  color: hsl(231, 11%, 63%);
+}
+
+.footer > button {
+  background-color: hsl(213, 96%, 18%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 4px;
 }
