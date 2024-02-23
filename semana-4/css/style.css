@@ -6,6 +6,7 @@
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: rgb(238, 242, 247);
 }
 
 main {
@@ -14,7 +15,13 @@ main {
   justify-content: center;
   padding: 20px;
   gap: 30px;
-  background-color: rgb(238, 242, 247);
+
+  grid-template-areas:
+    "daniel"
+    "jonathan"
+    "jeanette"
+    "patrick"
+    "kira";
 }
 
 .container-daniel {
@@ -25,6 +32,7 @@ main {
   z-index: 1;
   border-radius: 12px;
   padding: 25px;
+  grid-area: daniel;
 }
 
 .container-daniel::after {
@@ -76,12 +84,14 @@ main {
   color: #fff;
   border-radius: 12px;
   padding: 25px;
+  grid-area: jonathan;
 }
 
 .container-jeanette {
   background-color: #fff;
   border-radius: 12px;
   padding: 25px;
+  grid-area: jeanette;
 }
 
 .container-patrick {
@@ -89,10 +99,45 @@ main {
   border-radius: 12px;
   padding: 25px;
   color: #fff;
+  grid-area: patrick;
 }
 
 .container-kira {
   background-color: #fff;
   border-radius: 12px;
   padding: 25px;
+  grid-area: kira;
+}
+
+@media (min-width: 1280px) {
+  main {
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    height: 100vh;
+    width: 1440px;
+    margin: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .container-daniel {
+    height: 100%;
+  }
+
+  .container-jonathan {
+    height: 100%;
+  }
+
+  .container-kira {
+    height: 100%;
+  }
+
+  .container-jeanette {
+    height: 100%;
+  }
+
+  .container-patrick {
+    height: 100%;
+  }
 }
