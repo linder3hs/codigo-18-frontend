@@ -10,10 +10,11 @@ body {
 
 main {
   display: grid;
-  height: 100vh;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  gap: 30px;
+  background-color: rgb(238, 242, 247);
 }
 
 .container-daniel {
@@ -68,4 +69,30 @@ main {
 .description {
   margin-top: 20px;
   color: hsl(0, 0%, 81%);
+}
+
+.container-jonathan {
+  background-color: hsl(217, 19%, 35%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.container-jeanette {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.container-patrick {
+  background-color: hsl(219, 29%, 14%);
+  border-radius: 12px;
+  padding: 25px;
+  color: #fff;
+}
+
+.container-kira {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
 }
