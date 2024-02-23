@@ -5,19 +5,28 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 
-div {
-  width: 500px;
+main {
+  display: grid;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container-daniel {
   background-color: hsl(263, 55%, 52%);
   color: #fff;
   padding: 10px;
   position: relative;
   z-index: 1;
+  border-radius: 12px;
+  padding: 25px;
 }
 
-div::after {
+.container-daniel::after {
   content: "";
   background: url("../images/bg-pattern-quotation.svg") no-repeat;
   width: 100px;
@@ -25,6 +34,38 @@ div::after {
   display: block;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 30px;
   z-index: -1;
+}
+
+.container-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-profile > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.container-profile > div > h3 {
+  font-size: 14px;
+}
+
+.container-profile > div > p {
+  font-size: 12px;
+  color: hsl(0, 0%, 81%);
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.description {
+  margin-top: 20px;
+  color: hsl(0, 0%, 81%);
 }
