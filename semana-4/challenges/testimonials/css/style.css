@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: rgb(238, 242, 247);
+}
+
+main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 30px;
+
+  grid-template-areas:
+    "daniel"
+    "jonathan"
+    "jeanette"
+    "patrick"
+    "kira";
+}
+
+.container-daniel {
+  background-color: hsl(263, 55%, 52%);
+  color: #fff;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  padding: 25px;
+  grid-area: daniel;
+}
+
+.container-daniel::after {
+  content: "";
+  background: url("../images/bg-pattern-quotation.svg") no-repeat;
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  z-index: -1;
+}
+
+.container-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-profile > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.container-profile > div > h3 {
+  font-size: 14px;
+}
+
+.container-profile > div > p {
+  font-size: 12px;
+  color: hsl(0, 0%, 81%);
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.description {
+  margin-top: 20px;
+  color: hsl(0, 0%, 81%);
+}
+
+.container-jonathan {
+  background-color: hsl(217, 19%, 35%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  grid-area: jonathan;
+}
+
+.container-jeanette {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  grid-area: jeanette;
+}
+
+.container-patrick {
+  background-color: hsl(219, 29%, 14%);
+  border-radius: 12px;
+  padding: 25px;
+  color: #fff;
+  grid-area: patrick;
+}
+
+.container-kira {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  grid-area: kira;
+}
+
+@media (min-width: 1280px) {
+  main {
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    height: 100vh;
+    width: 1440px;
+    margin: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .container-daniel {
+    height: 100%;
+  }
+
+  .container-jonathan {
+    height: 100%;
+  }
+
+  .container-kira {
+    height: 100%;
+  }
+
+  .container-jeanette {
+    height: 100%;
+  }
+
+  .container-patrick {
+    height: 100%;
+  }
+}
