@@ -1,3 +1,7 @@
+body {
+  font-family: "Inter", sans-serif !important;
+}
+
 main {
   height: 100vh;
   display: grid;
