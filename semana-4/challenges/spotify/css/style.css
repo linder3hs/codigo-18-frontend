@@ -23,6 +23,7 @@ main {
     "player player player";
   grid-template-rows: 90vh 10vh;
   grid-template-columns: 270px 1fr 270px;
+  background-color: #212121;
 }
 
 .sidebar {
@@ -32,9 +33,11 @@ main {
 .principal {
   grid-area: principal;
 }
+
 .extra {
   grid-area: extra;
 }
+
 .player {
   grid-area: player;
 }
