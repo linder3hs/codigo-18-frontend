@@ -2,6 +2,19 @@ body {
   font-family: "Inter", sans-serif !important;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d !important;
+  border-radius: 6px;
+}
+
 main {
   height: 100vh;
   display: grid;
