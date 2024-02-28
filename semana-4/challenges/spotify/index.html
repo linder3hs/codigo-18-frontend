@@ -138,10 +138,20 @@
       </aside>
       <section class="principal bg-[#121212]">content principal</section>
       <section class="extra bg-[#212121]">extra</section>
-      <section class="player bg-[#15cf]/70 relative">
-        <div class="imagen h-full absolute inset-0 filter blur"></div>
-        <div class="h-full absolute inset-0">
-          <img src="./assets/icons/music1.svg" alt="" class="object-cover" />
+      <section
+        class="player bg-[url('./assets/images/bg-play.png')] backdrop-blur-sm bg-white/30 flex justify-center items-center gap-5 p-5"
+      >
+        <img src="./assets/images/music.svg" alt="" class="object-cover" />
+        <div>
+          <div class="flex gap-3">
+            <img src="./assets/icons/back.svg" alt="" />
+            <img
+              src="./assets/icons/pause.svg"
+              class="bg-[#D9D9D9] p-1 rounded-full"
+              alt=""
+            />
+            <img src="./assets/icons/back.svg" class="rotate-180" alt="" />
+          </div>
         </div>
       </section>
     </main>
