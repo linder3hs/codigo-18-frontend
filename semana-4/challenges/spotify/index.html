@@ -138,10 +138,19 @@
       </aside>
       <section class="principal bg-[#121212]">content principal</section>
       <section class="extra bg-[#212121]">extra</section>
-      <section class="player bg-[#15cf]/70 relative">
-        <div class="imagen h-full absolute inset-0 filter blur"></div>
-        <div class="h-full absolute inset-0">
-          <img src="./assets/icons/music1.svg" alt="" class="object-cover" />
+      <section class="player backdrop-blur-md bg-white/30">
+        <div class="w-full bg-[#4C4C4C] rounded-full h-[0.5vh]">
+          <div class="bg-white h-[0.5vh] rounded-full" style="width: 35%"></div>
+        </div>
+        <div class="h-[9.5vh] bg-[url('./assets/images/bg-play.png')] flex p-5">
+          <div class="flex items-center gap-5">
+            <img src="./assets/images/music.svg" alt="" class="object-cover" />
+            <div>
+              <h3 class="text-md">Shape of you</h3>
+              <p class="text-sm font-thin text-[#ADADAD]">Ed Sheeran</p>
+            </div>
+            <img width="20" src="./assets/icons/heart-player.svg" alt="" />
+          </div>
         </div>
       </section>
     </main>
