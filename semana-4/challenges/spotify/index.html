@@ -19,7 +19,7 @@
   <body>
     <main class="text-white">
       <aside
-        class="sidebar bg-[#212121] overflow-hidden hover:overflow-auto pb-20"
+        class="sidebar bg-[#212121] overflow-hidden hover:overflow-auto pb-40"
       >
         <div class="p-10">
           <div>
@@ -136,7 +136,7 @@
           </ul>
         </div>
       </aside>
-      <section class="principal bg-[#121212] p-10 overflow-auto">
+      <section class="principal bg-[#121212] p-10 overflow-auto pb-40">
         <div class="px-4">
           <div class="flex justify-between">
             <div class="flex gap-5 items-center">
@@ -469,7 +469,7 @@
           </div>
         </div>
       </section>
-      <section class="extra bg-[#212121] p-6 overflow-auto">
+      <section class="extra bg-[#212121] p-6 overflow-auto pb-40">
         <div class="flex gap-5">
           <img
             src="./assets/images/profile.png"
@@ -580,12 +580,14 @@
           </div>
         </div>
       </section>
-      <section class="player backdrop-blur-md bg-white/30">
+      <section
+        class="player absolute backdrop-blur-xl bottom-0 w-full bg-[#121212]/60"
+      >
         <div class="w-full bg-[#4C4C4C] rounded-full h-[0.5vh]">
           <div class="bg-white h-[0.5vh] rounded-full" style="width: 35%"></div>
         </div>
         <div
-          class="h-[9.5vh] bg-[url('./assets/images/bg-play.png')] flex justify-between p-5"
+          class="h-[9.5vh] backdrop-blur-md bg-white/30 flex justify-between p-5"
         >
           <div class="flex items-center gap-5">
             <img src="./assets/images/music.svg" alt="" class="object-cover" />
