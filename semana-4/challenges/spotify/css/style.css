@@ -12,7 +12,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #2d2d2d !important;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 main {
