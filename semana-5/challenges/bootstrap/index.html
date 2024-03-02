@@ -58,7 +58,12 @@
                   <button class="btn btn-primary">
                     <i class="fa-solid fa-eye"></i>
                   </button>
-                  <button class="btn btn-warning">
+                  <button
+                    type="button"
+                    class="btn btn-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editModal"
+                  >
                     <i class="fa-solid fa-pencil"></i>
                   </button>
                   <button class="btn btn-danger">
@@ -71,5 +76,74 @@
         </div>
       </section>
     </main>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Editar Producto</h2>
+          </div>
+          <div class="modal-body">
+            <form class="row g-4">
+              <div class="col-12">
+                <input
+                  type="text"
+                  placeholder="Editar nombre"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-12">
+                <textarea
+                  name=""
+                  id=""
+                  cols="5"
+                  rows="5"
+                  placeholder="Editar descripcion"
+                  class="form-control"
+                ></textarea>
+              </div>
+              <div class="col-4">
+                <input
+                  type="number"
+                  placeholder="Editar stock"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                  type="text"
+                  placeholder="Editar SKU"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-4">
+                <input
+                  type="number"
+                  placeholder="Editar precio"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-12">
+                <input type="file" class="form-control" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
