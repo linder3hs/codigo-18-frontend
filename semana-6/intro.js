@@ -72,3 +72,25 @@ console.log(typeof variable);
 let suma = 0;
 console.log(null + 10);
 console.log(0 + 10);
+
+const alumnos = ["Pepe", "Maria", "Juan"];
+const persona = {
+  nombre: "Linder",
+  apellido: "Hassinger",
+};
+console.log(typeof alumnos);
+console.log(typeof persona);
+
+const n1 = 10;
+const n2 = 10;
+console.log(n1 === n2);
+
+const n3 = Symbol(10);
+const n4 = Symbol(10);
+console.log(n4 === n3);
+
+const n5 = BigInt(999999999999999999999);
+const n6 = 999999999999999999999;
+console.log(typeof n5);
+console.log(typeof n6);
+console.log(n5 === n6);
