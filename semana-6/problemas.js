@@ -84,3 +84,33 @@ comprobarSiEsPrimo(3);
 comprobarSiEsPrimo(100);
 comprobarSiEsPrimo(10.4);
 comprobarSiEsPrimo(2.3);
+
+/*
+Suma de los elementos de un array:
+Escribe una función que tome un array de números como entrada y devuelva la suma de todos sus elementos.
+
+[1, 10, 5] = 16
+[20, 43, 3] = 66
+*/
+function sumarArray(numeros) {
+  // primero validamos si es un array
+  if (typeof numeros !== "object" || numeros.length < 1) {
+    return "Solo aceptamos arrays con información"
+  }
+  
+  let suma = 0
+  
+  for (let i = 0; i < numeros.length; i++) {
+    if (typeof numeros[i] !== "number") {
+      return "Solo aceptamos arrays de numeros"
+    }
+    suma += numeros[i]
+  }
+  
+  return suma
+}
+
+sumarArray([1, "10", 3])
+sumarArray([1, 10, 3])
+sumarArray([])
+sumarArray(1)
