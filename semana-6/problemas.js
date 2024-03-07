@@ -49,3 +49,38 @@ function contarVocales(texto) {
 
 contarVocales("telefono");
 contarVocales("celular");
+
+/*
+Comprobar si un número es primo:
+
+Escribe una función que tome un número(number) como entrada y devuelva true si es primo y false si no lo es. Un número primo es aquel que solo es divisible por 1 y por sí mismo.
+
+1 = NO
+*/
+
+function comprobarSiEsPrimo(numero) {
+  if (typeof numero !== "number") return "Solo se aceptan numeros";
+
+  if (numero === 1) return false;
+
+  let contador = 0;
+
+  for (let i = 0; i <= numero; i++) {
+    if (numero % i === 0) contador++;
+  }
+
+  return contador === 2;
+}
+
+console.log(2 === 2);
+console.log(1 === "1");
+
+comprobarSiEsPrimo("hola");
+comprobarSiEsPrimo(true);
+comprobarSiEsPrimo(1);
+comprobarSiEsPrimo(20);
+comprobarSiEsPrimo(97);
+comprobarSiEsPrimo(3);
+comprobarSiEsPrimo(100);
+comprobarSiEsPrimo(10.4);
+comprobarSiEsPrimo(2.3);
