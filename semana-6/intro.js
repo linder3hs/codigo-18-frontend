@@ -94,3 +94,4 @@ const n6 = 999999999999999999999;
 console.log(typeof n5);
 console.log(typeof n6);
 console.log(n5 === n6);
+
