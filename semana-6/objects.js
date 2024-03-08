@@ -50,3 +50,72 @@ Object.keys(person2.car);
 Object.keys(person2.car.color);
 Object.values(person2).length;
 Object.entries(person2).length;
+
+const books = [
+  {
+    id: 1,
+    title: "1984",
+    country: "UK",
+    pages: 328,
+    isbn: "9780451524935",
+  },
+  {
+    id: 2,
+    title: "hamlet",
+    country: "Denmark",
+    pages: 342,
+    isbn: "9780743477123",
+  },
+];
+
+// for (let i=0; i < 12;i++)
+
+/*
+Formas de iterar un arreglo
+
+for of
+for in
+*/
+
+const numbers = [100, 20, 23, 54, 57, 12];
+
+// for (let i=0; i<numbers.length;i++) {
+//   console.log(numbers[i])
+// }
+
+function forOfExample() {
+  for (let number of numbers) {
+    console.log(number);
+  }
+}
+
+function forInExample() {
+  for (let number in numbers) {
+    console.log(number);
+  }
+}
+
+// Quiero una funcion que me retorne el cuadrado de cada numero del arreglo numbers
+function powSquareNumbers() {
+  const newNumbers = [];
+
+  for (let number of numbers) {
+    const result = number * number;
+    newNumbers.push(result);
+  }
+
+  return newNumbers;
+}
+
+powSquareNumbers();
+
+// map lo que hacer es iterar y retornar un arreglo
+function powSquareNumbersMap() {
+  const newNumber = numbers.map(function (number) {
+    return number * number;
+  });
+
+  return newNumber;
+}
+
+powSquareNumbersMap();
