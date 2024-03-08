@@ -133,3 +133,42 @@ const newBooks = books.map(function (book) {
 });
 
 console.log(newBooks);
+
+// tengo un arreglo de precios y quiero otro arreglo pero de los precio + el igv 18% (0.18)
+
+const prices = [100.3, 2000.45, 125, 305];
+
+const pricesIGV = prices.map(function (price) {
+  return Number((price * 1.18).toFixed(2));
+});
+
+console.log(pricesIGV);
+
+// map -> []
+// forEach -> nada
+
+function countVowels(names) {
+  const vowels = "aeiou".split("");
+
+  const result = [];
+
+  names.forEach(function (name) {
+    // paso 1: covierto name a minuscula
+    const nameInLowerCase = name.toLowerCase();
+    let count = 0;
+    nameInLowerCase.split("").forEach(function (letter) {
+      if (vowels.includes(letter)) {
+        count++;
+      }
+    });
+
+    result.push({
+      originalName: name,
+      vowels: count,
+    });
+  });
+
+  return result;
+}
+
+countVowels(["Pepe", "Juan", "Maria", "Pedro"]);
