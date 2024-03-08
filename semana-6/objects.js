@@ -119,3 +119,17 @@ function powSquareNumbersMap() {
 }
 
 powSquareNumbersMap();
+
+// queremos agregar la propiedad imagen a books
+// books: es la lista que esta arriba
+const newBooks = books.map(function (book) {
+  return {
+    id: book.id,
+    title: book.title,
+    country: book.country,
+    isbn10: book.isbn,
+    image: "https://img....",
+  };
+});
+
+console.log(newBooks);
