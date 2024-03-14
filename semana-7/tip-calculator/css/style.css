@@ -25,7 +25,7 @@ main {
   gap: 50px;
 }
 
-form {
+.form {
   background-color: #fff;
   padding: 40px;
   border-radius: 16px;

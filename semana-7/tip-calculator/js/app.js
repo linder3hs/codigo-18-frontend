@@ -14,7 +14,7 @@ const percentages = [
   },
   {
     type: "button",
-    value: "20%",
+    value: "15%",
   },
   {
     type: "button",
@@ -49,13 +49,18 @@ inputBill.onkeyup = function (event) {
   }
 };
 
-function renderButton(text) {
-  return `<button>${text}</button>`;
+function setButtonTip(element) {
+  console.log(element);
 }
 
-function renderInput() {
+function renderButton(text, index) {
+  return `<button onclick="setButtonTip(this)" id="button-percentage-${index}">${text}</button>`;
+}
+
+function renderInput(index) {
   return `<input
             type="text"
+            id="input-percentage-${index}"
             class="outline-none p-2 bg-[#F3F8FB] rounded-md"
             placeholder="Custom"
           />`;
@@ -64,11 +69,11 @@ function renderInput() {
 // paso 1 es limpiar el contenido del container
 containerPercentages.innerHTML = "";
 
-percentages.forEach(function (percentage) {
+percentages.forEach(function (percentage, index) {
   const html =
     percentage.type === "button"
-      ? renderButton(percentage.value)
-      : renderInput();
+      ? renderButton(percentage.value, index)
+      : renderInput(index);
 
   containerPercentages.innerHTML += html;
 });
