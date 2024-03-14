@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reto 2 - Tip Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  </head>
+  <body>
+    <main>
+      <div class="p-6">
+        <img src="./images/logo.svg" alt="" />
+      </div>
+      <form class="w-full border h-full md:h-auto xl:w-[800px]">
+        <div>
+          <div>
+            <label for="input-bill" class="text-title">Bill</label>
+            <div class="container-input">
+              <img src="./images/icon-dollar.svg" alt="" />
+              <input id="input-bill" type="text" placeholder="0" />
+            </div>
+          </div>
+          <div>
+            <p class="text-title">Select Tip %</p>
+            <div class="container-percentage grid grid-cols-2 gap-3">
+              <button>5%</button>
+              <button>10%</button>
+              <button>15%</button>
+              <button>25%</button>
+              <button>50%</button>
+              <input
+                type="text"
+                class="outline-none p-2 bg-[#F3F8FB] rounded-md"
+                placeholder="Custom"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="input-people" class="text-title"
+              >Number of people</label
+            >
+            <div class="container-input">
+              <img src="./images/icon-person.svg" alt="" />
+              <input id="input-people" type="text" placeholder="0" />
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 rounded-md bg-[#00474b] p-6 text-white">
+          <div class="flex flex-col gap-10">
+            <div class="flex justify-between">
+              <div>
+                <p>Tip Amount</p>
+                <span class="text-gray-300">/ person</span>
+              </div>
+              <div>
+                <p class="text-4xl text-[#2abfac]">$ 0.00</p>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p>Total</p>
+                <span class="text-gray-300">/ person</span>
+              </div>
+              <div>
+                <p class="text-4xl text-[#2abfac]">$ 0.00</p>
+              </div>
+            </div>
+            <button
+              class="bg-[#2abfac] py-4 rounded-md text-2xl text-[#00474b] uppercase"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
