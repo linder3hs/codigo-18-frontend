@@ -69,3 +69,8 @@ form > div {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.active {
+  background-color: #2abfac !important;
+  color: #00474b !important;
+}

@@ -7,26 +7,32 @@ const percentages = [
   {
     type: "button",
     value: "5%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "10%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "15%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "25%",
+    isCheck: false,
   },
   {
     type: "button",
     value: "50%",
+    isCheck: false,
   },
   {
     type: "input",
     value: "0",
+    isCheck: false,
   },
 ];
 
@@ -50,11 +56,25 @@ inputBill.onkeyup = function (event) {
 };
 
 function setButtonTip(element) {
-  console.log(element);
+  const buttonIndex = element.dataset.index; // 5% index = 0
+  percentages[buttonIndex].isCheck = true;
+
+  for (let percentage in percentages) {
+    if (percentage !== buttonIndex) {
+      percentages[percentage].isCheck = false;
+    }
+  }
+
+  renderPercentagesButtons(percentages);
 }
 
-function renderButton(text, index) {
-  return `<button onclick="setButtonTip(this)" id="button-percentage-${index}">${text}</button>`;
+function renderButton(percentage, index) {
+  const extraClass = percentage.isCheck ? "active" : "";
+
+  return `
+    <button onclick="setButtonTip(this)" class="${extraClass}" data-index="${index}">
+      ${percentage.value}
+    </button>`;
 }
 
 function renderInput(index) {
@@ -66,14 +86,17 @@ function renderInput(index) {
           />`;
 }
 
-// paso 1 es limpiar el contenido del container
-containerPercentages.innerHTML = "";
+function renderPercentagesButtons(percentagesArray) {
+  containerPercentages.innerHTML = "";
 
-percentages.forEach(function (percentage, index) {
-  const html =
-    percentage.type === "button"
-      ? renderButton(percentage.value, index)
-      : renderInput(index);
+  percentagesArray.forEach(function (percentage, index) {
+    const html =
+      percentage.type === "button"
+        ? renderButton(percentage, index)
+        : renderInput(index);
 
-  containerPercentages.innerHTML += html;
-});
+    containerPercentages.innerHTML += html;
+  });
+}
+
+renderPercentagesButtons(percentages);
