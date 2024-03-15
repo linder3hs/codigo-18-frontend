@@ -55,16 +55,27 @@ inputBill.onkeyup = function (event) {
   }
 };
 
+/**
+ * setButtonTip
+ * Recibe como parametro a un element que en este contexto es button
+ * lo que queremos obtener de este button es el indice del boton al que le 
+ * dieron click, sabiendo eso haremos lo siguiente
+ */
 function setButtonTip(element) {
+  // Paso1: Obtener el indice del button
   const buttonIndex = element.dataset.index; // 5% index = 0
+  // Paso2: Entrar al array de objecto y buscar por indicie y cambiar la 
+  // propiedad isCheck = true
   percentages[buttonIndex].isCheck = true;
 
+  // Paso3: Modificamos el valor de las otra opciones false
   for (let percentage in percentages) {
+    // Paso4: Validamos que el indice sea diferente a buttonIndex
     if (percentage !== buttonIndex) {
       percentages[percentage].isCheck = false;
     }
   }
-
+  // Paso5: Volvemos a renderizar lo botones con la informaciona actualizada
   renderPercentagesButtons(percentages);
 }
 
