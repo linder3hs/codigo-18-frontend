@@ -12,7 +12,37 @@ inputBill.onkeyup = function (event) {
 };
 
 inputPeople.onkeyup = function (event) {
-  validateInputIfNumber(event, "event", containerInputPeople, inputPeople);
+  const validate = validateInputIfNumber(
+    event,
+    "event",
+    containerInputPeople,
+    inputPeople
+  );
+  if (!validate) return;
+};
+
+buttonCalculate.onclick = function () {
+  // Paso1: Obtener el valor del input bill
+  const billValue = Number(inputBill.value); // 100
+  const peopleValue = Number(inputPeople.value); // 5
+
+  // Paso2: Obtener los valores de nuestro input y botones
+  const getValuePercetange =
+    percentages.find(function (percentage) {
+      return percentage.isCheck;
+    }) ?? percentages.at(-1);
+
+  /**
+   * Replace es una funcion la cual me permite buscar caracteres dentro de un
+   * string y poder reemplazarlos
+   */
+  const parsePercetange = Number(getValuePercetange.value.replace("%", "")); // 10
+
+  const operation = billValue + (billValue * parsePercetange) / 100;
+  const opetationPerPerson = operation / peopleValue;
+
+  perPerson.textContent = `$ ${opetationPerPerson.toFixed(2)}`;
+  total.textContent = `$ ${operation.toFixed(2)}`;
 };
 
 /**
@@ -80,6 +110,8 @@ function setInputTip(element) {
       value: percentage.type === "input" ? element.value : percentage.value,
     };
   });
+
+  percentages = percetangesFalse;
   /**
    * Como en el map estamos creando un array con la informacion cambiada vamos a
    * pasarle ese nuevo array a la funcion renderPercentagesButtons la cual va a

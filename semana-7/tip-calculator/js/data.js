@@ -1,5 +1,5 @@
 // array con los valores de los botons
-const percentages = [
+let percentages = [
   {
     type: "button",
     value: "5%",
