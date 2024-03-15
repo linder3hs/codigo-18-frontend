@@ -29,4 +29,6 @@ function validateInputIfNumber(element, type, container, input) {
   } else {
     container.classList.remove("border", "border-red-500");
   }
+
+  return true;
 }

@@ -3,8 +3,16 @@ containerBill.onclick = function () {
   inputBill.focus();
 };
 
+containerInputPeople.onclick = function () {
+  inputPeople.focus();
+};
+
 inputBill.onkeyup = function (event) {
   validateInputIfNumber(event, "event", containerBill, inputBill);
+};
+
+inputPeople.onkeyup = function (event) {
+  validateInputIfNumber(event, "event", containerInputPeople, inputPeople);
 };
 
 /**
