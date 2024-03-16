@@ -56,4 +56,5 @@ form.onsubmit = function (event) {
    */
   localStorage.setItem("user", JSON.stringify(result));
   // TODO: Enviar a otra pagina
+  location.href = "http://127.0.0.1:5500/semana-7/login/home.html";
 };
