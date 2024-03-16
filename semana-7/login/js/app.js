@@ -25,5 +25,13 @@ form.onsubmit = function (event) {
    * Debemos saber que toda la informacion del formulario esta en event
    * console.log(event)
    */
-  console.log(event);
+  const formInfo = Array.from(event.target)
+    .filter(function (input) {
+      return input.value;
+    })
+    .map(function (input) {
+      return input.value;
+    });
+
+  const [email, password] = formInfo;
 };
