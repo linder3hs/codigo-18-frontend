@@ -44,6 +44,11 @@ form.onsubmit = function (event) {
 
   if (!result) {
     // TODO: Mostrar alerta de error en este caso
+    Swal.fire({
+      title: "Hubo un error!",
+      text: "Email y/o password incorrectos",
+      icon: "error",
+    });
     return;
   }
 
