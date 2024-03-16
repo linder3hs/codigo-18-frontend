@@ -34,4 +34,26 @@ form.onsubmit = function (event) {
     });
 
   const [email, password] = formInfo;
+
+  /**
+   * Debemos buscar dentro del array de users la info basada en email y password
+   */
+  const result = users.find(function (user) {
+    return user.email === email && user.password === password;
+  });
+
+  if (!result) {
+    // TODO: Mostrar alerta de error en este caso
+    return;
+  }
+
+  // Vamos a guardar al usuario en localStorage
+  /**
+   *  localStorage.setItem(key, value)
+   * Esto recuerden es para crear un elemento en localStorage
+   *
+   * ojo: JSON.stringify(result) sirve para convertir un object a un string
+   */
+  localStorage.setItem("user", JSON.stringify(result));
+  // TODO: Enviar a otra pagina
 };
