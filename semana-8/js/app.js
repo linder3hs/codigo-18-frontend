@@ -7,6 +7,20 @@ const containerTasks = document.querySelector("#container-tasks");
 // Vamos a crear un array de objetos pero que por defecto este vacio
 const tasks = []; //Array vacio
 
+function validateIfInputIsEmpty() {
+  if (inputTask.value === "") {
+    inputTask.classList.add("border", "border-red-500");
+    error.textContent = "Debe completar este campo";
+    return false;
+  } else {
+    inputTask.classList.remove("border", "border-red-500");
+    error.textContent = "";
+    return true;
+  }
+}
+
+inputTask.onkeyup = () => validateIfInputIsEmpty();
+
 // Vamos a capturar el evento onsubmit de form
 /**
  * Como recomendacion, es bueno usar el nombre event o e
@@ -20,14 +34,7 @@ form.onsubmit = (event) => {
   // evitar que se recargue la pagina
   event.preventDefault();
   // Primero vamos a validar que el input este lleno
-  if (inputTask.value === "") {
-    inputTask.classList.add("border", "border-red-500");
-    error.textContent = "Debe completar este campo";
-    return;
-  } else {
-    inputTask.classList.remove("border", "border-red-500");
-    error.textContent = "";
-  }
+  if (!validateIfInputIsEmpty()) return;
 
   // Vamos a crear el objeto de tara
   const task = {
