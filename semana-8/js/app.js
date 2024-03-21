@@ -4,8 +4,11 @@ const inputTask = document.querySelector("#input-task");
 const error = document.querySelector("#error");
 const containerTasks = document.querySelector("#container-tasks");
 
-// Vamos a crear un array de objetos pero que por defecto este vacio
-const tasks = []; //Array vacio
+const validateTasksFromLocalStorage = localStorage.getItem("tasks");
+
+const tasks = validateTasksFromLocalStorage
+  ? [...JSON.parse(validateTasksFromLocalStorage)]
+  : [];
 
 function validateIfInputIsEmpty() {
   if (inputTask.value === "") {
@@ -17,6 +20,10 @@ function validateIfInputIsEmpty() {
     error.textContent = "";
     return true;
   }
+}
+
+function saveTasksInLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 inputTask.onkeyup = () => validateIfInputIsEmpty();
@@ -44,6 +51,10 @@ form.onsubmit = (event) => {
     created_at: new Date(),
   };
   tasks.push(task);
+  // Limpiar el input
+  inputTask.value = "";
+  // guardar en localStorage
+  saveTasksInLocalStorage();
   // vas a hacer el render de las tareas
   renderTasks();
 };
