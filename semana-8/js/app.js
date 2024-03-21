@@ -4,9 +4,11 @@ const inputTask = document.querySelector("#input-task");
 const error = document.querySelector("#error");
 const containerTasks = document.querySelector("#container-tasks");
 
+// Si quiero obtener algo de localStorage y eso no existe este retorna null
+// Pasa que esta variable puede un string o un null
 const validateTasksFromLocalStorage = localStorage.getItem("tasks");
 
-const tasks = validateTasksFromLocalStorage
+let tasks = validateTasksFromLocalStorage
   ? [...JSON.parse(validateTasksFromLocalStorage)]
   : [];
 
@@ -59,6 +61,14 @@ form.onsubmit = (event) => {
   renderTasks();
 };
 
+function deleteTask(id) {
+  tasks = tasks.filter((task) => task.id !== id);
+  // guardar en localStorage
+  saveTasksInLocalStorage();
+  // render para que vuelva a pintar las tareas
+  renderTasks();
+}
+
 function renderTasks() {
   // Paso 1: Limpiar el container
   containerTasks.innerHTML = "";
@@ -74,7 +84,7 @@ function renderTasks() {
         <div class="flex gap-5">
           <button>✅</button>
           <button>✏️</button>
-          <button>🗑️</button>
+          <button onclick="deleteTask(${task.id})">🗑️</button>
         </div>
       </div>`;
   });
