@@ -2,6 +2,7 @@
 const form = document.querySelector("#form");
 const inputTask = document.querySelector("#input-task");
 const error = document.querySelector("#error");
+const containerTasks = document.querySelector("#container-tasks");
 
 // Vamos a crear un array de objetos pero que por defecto este vacio
 const tasks = []; //Array vacio
@@ -23,6 +24,9 @@ form.onsubmit = (event) => {
     inputTask.classList.add("border", "border-red-500");
     error.textContent = "Debe completar este campo";
     return;
+  } else {
+    inputTask.classList.remove("border", "border-red-500");
+    error.textContent = "";
   }
 
   // Vamos a crear el objeto de tara
@@ -33,4 +37,29 @@ form.onsubmit = (event) => {
     created_at: new Date(),
   };
   tasks.push(task);
+  // vas a hacer el render de las tareas
+  renderTasks();
 };
+
+function renderTasks() {
+  // Paso 1: Limpiar el container
+  containerTasks.innerHTML = "";
+  // Que variable vamos a usar para lista las tareas
+  // Paso 2: Iterar a tasks
+  tasks.forEach((task) => {
+    // Cuando estamos iterando queremos adicionar elemento a containerTasks
+    // operador de adicion +=
+    // `String: ${variable}` Template String
+    containerTasks.innerHTML += `
+      <div class="flex justify-between px-4 mb-3 py-3 bg-white rounded-md">
+        <p>${task.text}</p>
+        <div class="flex gap-5">
+          <button>✅</button>
+          <button>✏️</button>
+          <button>🗑️</button>
+        </div>
+      </div>`;
+  });
+}
+
+renderTasks();
