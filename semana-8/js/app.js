@@ -87,6 +87,22 @@ function cancelEdit(id) {
   taskContainer.innerHTML = html;
 }
 
+function updateTask(id) {
+  const updatedInputTask = document.querySelector(`#input-task-${id}`);
+  if (updatedInputTask.value === "") {
+    updatedInputTask.classList.add("border-red-500");
+    return;
+  } else {
+    updatedInputTask.classList.remove("border-red-500");
+  }
+  const task = tasks.find((item) => item.id === id);
+  // Primero actualizamos el valor de task.text
+  task.text = updatedInputTask.value;
+  // Hay que actualizar localStorage
+  saveTasksInLocalStorage();
+  cancelEdit(id);
+}
+
 function editTask(id) {
   const taskContainer = document.querySelector(`#task-${id}`);
   taskContainer.innerHTML = "";
@@ -94,10 +110,10 @@ function editTask(id) {
   const html = `
     <div class="flex justify-between w-full items-center gap-3">
       <div class="flex-1">
-        <input type="text" class="outline-none px-4 py-2 border rounded-md w-full" placeholder="Editar tarea" />
+        <input type="text" id="input-task-${id}" class="outline-none px-4 py-2 border rounded-md w-full" placeholder="Editar tarea" />
       </div>
       <div class="flex gap-5">
-        <button>💾</button>
+        <button onclick="updateTask(${id})">💾</button>
         <button onclick="cancelEdit(${id})">❌</button>
       </div>
     </div>
