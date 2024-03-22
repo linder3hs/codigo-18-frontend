@@ -5,6 +5,7 @@ const error = document.querySelector("#error");
 const containerTasks = document.querySelector("#container-tasks");
 const modal = document.querySelector("#modal");
 const inputEditTask = document.querySelector("#input-edit-task");
+const formEdit = document.querySelector("#form-edit");
 
 // cuando iniciemos vamos a colocar la clase hidden
 modal.classList.add("hidden");
@@ -82,6 +83,17 @@ form.onsubmit = (event) => {
   renderTasks();
 };
 
+formEdit.onsubmit = (event) => {
+  // Siempre evitemos que se recargue el navegador
+  event.preventDefault();
+  const id = Number(inputEditTask.dataset.id);
+  const task = tasks.find((item) => item.id === id);
+  task.text = inputEditTask.value;
+  saveTasksInLocalStorage();
+  closeModal();
+  cancelEdit(id);
+};
+
 function checkTask(id) {
   // Primero estamos actualizando el item del array
   const task = tasks.find((item) => item.id === id);
@@ -134,6 +146,7 @@ function editTaskWithModal(id) {
   // buscar a la tarea
   const task = tasks.find((item) => item.id === id);
   inputEditTask.value = task.text;
+  inputEditTask.setAttribute("data-id", id);
   inputEditTask.focus();
 }
 
