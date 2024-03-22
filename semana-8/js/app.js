@@ -69,6 +69,24 @@ function deleteTask(id) {
   renderTasks();
 }
 
+function editTask(id) {
+  const taskContainer = document.querySelector(`#task-${id}`);
+  taskContainer.innerHTML = "";
+  // Ahora vamos a reemplazar ese html por uno que tenga un input y dos botones
+  const html = `
+    <div class="flex justify-between w-full items-center gap-3">
+      <div class="flex-1">
+        <input type="text" class="outline-none px-4 py-2 border rounded-md w-full" placeholder="Editar tarea" />
+      </div>
+      <div class="flex gap-5">
+        <button>💾</button>
+        <button>❌</button>
+      </div>
+    </div>
+  `;
+  taskContainer.innerHTML = html;
+}
+
 function renderTasks() {
   // Paso 1: Limpiar el container
   containerTasks.innerHTML = "";
@@ -79,11 +97,11 @@ function renderTasks() {
     // operador de adicion +=
     // `String: ${variable}` Template String
     containerTasks.innerHTML += `
-      <div class="flex justify-between px-4 mb-3 py-3 bg-white rounded-md">
+      <div class="flex justify-between px-4 mb-3 py-3 bg-white rounded-md" id="task-${task.id}">
         <p>${task.text}</p>
         <div class="flex gap-5">
           <button>✅</button>
-          <button>✏️</button>
+          <button onclick="editTask(${task.id})">✏️</button>
           <button onclick="deleteTask(${task.id})">🗑️</button>
         </div>
       </div>`;
