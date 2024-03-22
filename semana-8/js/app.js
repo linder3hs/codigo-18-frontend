@@ -69,6 +69,24 @@ function deleteTask(id) {
   renderTasks();
 }
 
+function cancelEdit(id) {
+  const taskContainer = document.querySelector(`#task-${id}`);
+  taskContainer.innerHTML = "";
+
+  // Como tenemos el id de la tarea puedo buscar el array
+  const task = tasks.find((item) => item.id === id);
+
+  const html = `
+    <p>${task.text}</p>
+    <div class="flex gap-5">
+      <button>✅</button>
+      <button onclick="editTask(${task.id})">✏️</button>
+      <button onclick="deleteTask(${task.id})">🗑️</button>
+    </div>
+  `;
+  taskContainer.innerHTML = html;
+}
+
 function editTask(id) {
   const taskContainer = document.querySelector(`#task-${id}`);
   taskContainer.innerHTML = "";
@@ -80,7 +98,7 @@ function editTask(id) {
       </div>
       <div class="flex gap-5">
         <button>💾</button>
-        <button>❌</button>
+        <button onclick="cancelEdit(${id})">❌</button>
       </div>
     </div>
   `;
