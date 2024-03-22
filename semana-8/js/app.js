@@ -24,6 +24,22 @@ function validateIfInputIsEmpty() {
   }
 }
 
+function renderInnerTask(task) {
+  const taskCreated = `
+    <p>${task.text}</p>
+    <div class="flex gap-5">
+      <button onclick="checkTask(${task.id})">✅</button>
+      <button onclick="editTask(${task.id})">✏️</button>
+      <button onclick="deleteTask(${task.id})">🗑️</button>
+    </div>
+  `;
+
+  const taksDone = `
+    <p class="line-through italic font-thin">${task.text}</p>
+  `;
+  return task.status === 1 ? taskCreated : taksDone;
+}
+
 function saveTasksInLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -61,6 +77,15 @@ form.onsubmit = (event) => {
   renderTasks();
 };
 
+function checkTask(id) {
+  // Primero estamos actualizando el item del array
+  const task = tasks.find((item) => item.id === id);
+  task.status = 2;
+  saveTasksInLocalStorage();
+  // actualizar la interface
+  cancelEdit(id);
+}
+
 function deleteTask(id) {
   tasks = tasks.filter((task) => task.id !== id);
   // guardar en localStorage
@@ -76,15 +101,7 @@ function cancelEdit(id) {
   // Como tenemos el id de la tarea puedo buscar el array
   const task = tasks.find((item) => item.id === id);
 
-  const html = `
-    <p>${task.text}</p>
-    <div class="flex gap-5">
-      <button>✅</button>
-      <button onclick="editTask(${task.id})">✏️</button>
-      <button onclick="deleteTask(${task.id})">🗑️</button>
-    </div>
-  `;
-  taskContainer.innerHTML = html;
+  taskContainer.innerHTML = renderInnerTask(task);
 }
 
 function updateTask(id) {
@@ -131,13 +148,10 @@ function renderTasks() {
     // operador de adicion +=
     // `String: ${variable}` Template String
     containerTasks.innerHTML += `
-      <div class="flex justify-between px-4 mb-3 py-3 bg-white rounded-md" id="task-${task.id}">
-        <p>${task.text}</p>
-        <div class="flex gap-5">
-          <button>✅</button>
-          <button onclick="editTask(${task.id})">✏️</button>
-          <button onclick="deleteTask(${task.id})">🗑️</button>
-        </div>
+      <div class="flex justify-between px-4 mb-3 py-3 bg-white rounded-md" id="task-${
+        task.id
+      }">
+        ${renderInnerTask(task)}
       </div>`;
   });
 }
