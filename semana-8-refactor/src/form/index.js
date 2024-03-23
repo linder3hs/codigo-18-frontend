@@ -1,7 +1,8 @@
 import { validateIfInputIsEmpty } from "../utils";
 import { tasks, saveTasksInLocalStorage } from "../mock";
+import { renderTasks } from "../render";
 
-export function createTask(element, input) {
+export function createTask(element, input, container) {
   element.onsubmit = function (event) {
     event.preventDefault();
     if (!validateIfInputIsEmpty(input)) return;
@@ -17,5 +18,6 @@ export function createTask(element, input) {
 
     input.value = "";
     saveTasksInLocalStorage();
+    renderTasks(container);
   };
 }

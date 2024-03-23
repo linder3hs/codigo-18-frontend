@@ -1,5 +1,6 @@
 import "./style.css";
 import { createTask } from "./src/form";
+import { renderTasks } from "./src/render";
 
 // Template string
 document.querySelector("#app").innerHTML = `
@@ -69,5 +70,8 @@ document.querySelector("#app").innerHTML = `
 
 createTask(
   document.querySelector("#form"),
-  document.querySelector("#input-task")
+  document.querySelector("#input-task"),
+  document.querySelector("#container-tasks")
 );
+
+renderTasks(document.querySelector("#container-tasks"));
