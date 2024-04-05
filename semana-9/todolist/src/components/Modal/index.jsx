@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 export default function Modal(props) {
   return (
     <>
       <div
         id="modal"
-        className={`relative z-50 w-full  ${props.open ? "" : "hidden"}`}
+        className={`relative z-50 w-full ${props.open ? "" : "hidden"}`}
       >
         <div className="fixed inset-0 bg-black/30"></div>
         <div className="fixed inset-0 w-full p-6 flex justify-center items-center rounded-md">
@@ -21,7 +22,6 @@ export default function Modal(props) {
                 />
                 <div className="mt-5 flex justify-end gap-5">
                   <button
-                    onClick="closeModal()"
                     type="button"
                     className="py-2 px-4 border border-red-400 rounded-md"
                   >
