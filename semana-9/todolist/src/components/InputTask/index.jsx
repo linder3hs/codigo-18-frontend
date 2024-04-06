@@ -17,7 +17,6 @@ export default function InputTask(props) {
     <>
       <form
         onSubmit={handleFormSubmit}
-        action=""
         id="form"
         className="flex justify-between"
       >

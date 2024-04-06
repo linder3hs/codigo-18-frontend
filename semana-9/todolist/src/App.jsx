@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { InputTask, Modal } from "./components";
-import { tasks } from "./utils";
+import { tasks, saveTasksInLocalStorage } from "./utils";
 
 export default function App() {
   // Es el estado de la lista de tareas
   const [listTasks, setListTask] = useState(tasks);
   // Es el estado del input
   const [task, setTask] = useState("");
+  // Es para manejar el estado del modal
+  const [isOpen, setIsOpen] = useState(false);
+  // Creamos una variable para saber a que tarea le dimos click
+  const [currentTask, setCurrentTask] = useState(null);
 
   // Funcion que se encarga de capturar el valor del input
   const handleInputTask = (event) => {
@@ -15,7 +19,16 @@ export default function App() {
 
   const handleListTask = (task) => {
     task.id = listTasks.length + 1;
-    setListTask([...listTasks, task]);
+    const newTasks = [...listTasks, task];
+    setListTask(newTasks);
+    saveTasksInLocalStorage(newTasks);
+    setTask("");
+  };
+
+  const handleCurrentTask = (task) => {
+    // Paso 1: abrir el modal
+    setIsOpen(true);
+    setCurrentTask(task);
   };
 
   return (
@@ -36,13 +49,13 @@ export default function App() {
               <p>{task.text}</p>
               <div className="flex gap-5">
                 <button>✅</button>
-                <button>✏️</button>
+                <button onClick={() => handleCurrentTask(task)}>✏️</button>
                 <button>🗑️</button>
               </div>
             </div>
           ))}
         </section>
-        <Modal open={false} />
+        <Modal open={isOpen} />
       </main>
     </>
   );
