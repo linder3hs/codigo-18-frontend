@@ -31,6 +31,16 @@ export default function App() {
     setCurrentTask(task);
   };
 
+  const handleUpdateTask = (task, newText) => {
+    // Paso1: Buscar la tarea en mi lista
+    const searchTask = listTasks.find((element) => element.id === task.id);
+    searchTask.text = newText;
+
+    saveTasksInLocalStorage(listTasks);
+    setListTask(listTasks);
+    setIsOpen(false);
+  };
+
   return (
     <>
       <main className="max-w-md mx-auto p-6">
@@ -63,6 +73,7 @@ export default function App() {
             open={isOpen}
             currentTask={currentTask}
             setIsOpen={setIsOpen}
+            handleUpdateTask={handleUpdateTask}
           />
         )}
       </main>

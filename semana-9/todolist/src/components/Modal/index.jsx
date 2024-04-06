@@ -8,6 +8,12 @@ export default function Modal(props) {
     setEditedTask(event.target.value);
   };
 
+  const handleFormEditSubmit = (event) => {
+    event.preventDefault();
+
+    props.handleUpdateTask(props.currentTask, editedTask);
+  };
+
   useEffect(() => {
     setEditedTask(props.currentTask?.text);
     // Es una dependencia
@@ -26,7 +32,7 @@ export default function Modal(props) {
               <h2 className="text-2xl font-semibold">Editar tarea</h2>
             </div>
             <div id="modal-content">
-              <form action="" id="form-edit">
+              <form action="" id="form-edit" onSubmit={handleFormEditSubmit}>
                 <input
                   id="input-edit-task"
                   type="text"
