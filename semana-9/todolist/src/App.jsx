@@ -37,7 +37,6 @@ export default function App() {
     searchTask.text = newText;
 
     saveTasksInLocalStorage(listTasks);
-    setListTask(listTasks);
     setIsOpen(false);
   };
 
