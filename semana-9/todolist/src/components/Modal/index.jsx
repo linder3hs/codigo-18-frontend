@@ -17,12 +17,14 @@ export default function Modal(props) {
                 <input
                   id="input-edit-task"
                   type="text"
+                  value={props.currentTask?.text}
                   placeholder="Editar tarea"
                   className="w-full border py-2 px-4 rounded-md outline-none"
                 />
                 <div className="mt-5 flex justify-end gap-5">
                   <button
                     type="button"
+                    onClick={() => props.setIsOpen(false)}
                     className="py-2 px-4 border border-red-400 rounded-md"
                   >
                     Cerrar

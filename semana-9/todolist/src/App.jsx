@@ -49,13 +49,16 @@ export default function App() {
               <p>{task.text}</p>
               <div className="flex gap-5">
                 <button>✅</button>
+                {/* <button onClick={function () {
+                  handleCurrentTask(task)
+                }}>✏️</button> */}
                 <button onClick={() => handleCurrentTask(task)}>✏️</button>
                 <button>🗑️</button>
               </div>
             </div>
           ))}
         </section>
-        <Modal open={isOpen} />
+        <Modal open={isOpen} currentTask={currentTask} setIsOpen={setIsOpen} />
       </main>
     </>
   );
