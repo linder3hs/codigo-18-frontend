@@ -58,7 +58,13 @@ export default function App() {
             </div>
           ))}
         </section>
-        <Modal open={isOpen} currentTask={currentTask} setIsOpen={setIsOpen} />
+        {currentTask && (
+          <Modal
+            open={isOpen}
+            currentTask={currentTask}
+            setIsOpen={setIsOpen}
+          />
+        )}
       </main>
     </>
   );

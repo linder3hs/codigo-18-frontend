@@ -1,5 +1,18 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
+
 export default function Modal(props) {
+  const [editedTask, setEditedTask] = useState(props.currentTask?.text);
+
+  const handleEditTask = (event) => {
+    setEditedTask(event.target.value);
+  };
+
+  useEffect(() => {
+    setEditedTask(props.currentTask?.text);
+    // Es una dependencia
+  }, [props.currentTask?.text]);
+
   return (
     <>
       <div
@@ -17,7 +30,8 @@ export default function Modal(props) {
                 <input
                   id="input-edit-task"
                   type="text"
-                  value={props.currentTask?.text}
+                  value={editedTask}
+                  onChange={handleEditTask}
                   placeholder="Editar tarea"
                   className="w-full border py-2 px-4 rounded-md outline-none"
                 />
