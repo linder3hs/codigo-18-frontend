@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DeleteForm, InputTask, Modal, UpdateForm } from "./components";
 import { tasks, saveTasksInLocalStorage } from "./utils";
+import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   // Es el estado de la lista de tareas
@@ -19,7 +20,7 @@ export default function App() {
   };
 
   const handleListTask = (task) => {
-    task.id = listTasks.length + 1;
+    task.id = uuidv4();
     const newTasks = [...listTasks, task];
     setListTask(newTasks);
     saveTasksInLocalStorage(newTasks);
