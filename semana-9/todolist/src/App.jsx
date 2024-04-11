@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputTask, Modal, UpdateForm } from "./components";
+import { DeleteForm, InputTask, Modal, UpdateForm } from "./components";
 import { tasks, saveTasksInLocalStorage } from "./utils";
 
 export default function App() {
@@ -9,6 +9,7 @@ export default function App() {
   const [task, setTask] = useState("");
   // Es para manejar el estado del modal
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
   // Creamos una variable para saber a que tarea le dimos click
   const [currentTask, setCurrentTask] = useState(null);
 
@@ -29,6 +30,11 @@ export default function App() {
     // Paso 1: abrir el modal
     setIsOpen(true);
     setCurrentTask(task);
+  };
+
+  const handleDeleteTask = (task) => {
+    setCurrentTask(task);
+    setIsOpenDelete(true);
   };
 
   const handleUpdateTask = (task, newText) => {
@@ -62,7 +68,7 @@ export default function App() {
                   handleCurrentTask(task)
                 }}>✏️</button> */}
                 <button onClick={() => handleCurrentTask(task)}>✏️</button>
-                <button>🗑️</button>
+                <button onClick={() => handleDeleteTask(task)}>🗑️</button>
               </div>
             </div>
           ))}
@@ -73,6 +79,15 @@ export default function App() {
               currentTask={currentTask}
               handleUpdateTask={handleUpdateTask}
             />
+          </Modal>
+        )}
+        {currentTask && (
+          <Modal
+            open={isOpenDelete}
+            setIsOpen={setIsOpenDelete}
+            title="Eliminar tarea"
+          >
+            <DeleteForm currentTask={currentTask} />
           </Modal>
         )}
       </main>
