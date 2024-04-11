@@ -32,7 +32,7 @@ export default function App() {
     setCurrentTask(task);
   };
 
-  const handleDeleteTask = (task) => {
+  const handleCurrentDeleteTask = (task) => {
     setCurrentTask(task);
     setIsOpenDelete(true);
   };
@@ -45,6 +45,15 @@ export default function App() {
     saveTasksInLocalStorage(listTasks);
     setIsOpen(false);
   };
+
+  const handleDeleteTask = (task) => {
+    const filteredTasks = listTasks.filter((element) => element.id !== task.id);
+    saveTasksInLocalStorage(filteredTasks);
+    setListTask(filteredTasks);
+    setIsOpenDelete(false);
+  };
+
+  const handleDeleteCancel = () => setIsOpenDelete(false);
 
   return (
     <>
@@ -68,7 +77,9 @@ export default function App() {
                   handleCurrentTask(task)
                 }}>✏️</button> */}
                 <button onClick={() => handleCurrentTask(task)}>✏️</button>
-                <button onClick={() => handleDeleteTask(task)}>🗑️</button>
+                <button onClick={() => handleCurrentDeleteTask(task)}>
+                  🗑️
+                </button>
               </div>
             </div>
           ))}
@@ -87,7 +98,11 @@ export default function App() {
             setIsOpen={setIsOpenDelete}
             title="Eliminar tarea"
           >
-            <DeleteForm currentTask={currentTask} />
+            <DeleteForm
+              currentTask={currentTask}
+              handleDeleteTask={handleDeleteTask}
+              handleDeleteCancel={handleDeleteCancel}
+            />
           </Modal>
         )}
       </main>
