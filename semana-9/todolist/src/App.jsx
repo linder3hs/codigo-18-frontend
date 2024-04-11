@@ -11,6 +11,7 @@ export default function App() {
   // Es para manejar el estado del modal
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
+  const [isOpenCheck, setIsOpenCheck] = useState(false);
   // Creamos una variable para saber a que tarea le dimos click
   const [currentTask, setCurrentTask] = useState(null);
 
@@ -36,6 +37,11 @@ export default function App() {
   const handleCurrentDeleteTask = (task) => {
     setCurrentTask(task);
     setIsOpenDelete(true);
+  };
+
+  const handleCurrentCheckTask = (task) => {
+    setCurrentTask(task);
+    setIsOpenCheck(true);
   };
 
   const handleUpdateTask = (task, newText) => {
@@ -73,7 +79,7 @@ export default function App() {
             >
               <p>{task.text}</p>
               <div className="flex gap-5">
-                <button>✅</button>
+                <button onClick={() => handleCurrentCheckTask(task)}>✅</button>
                 {/* <button onClick={function () {
                   handleCurrentTask(task)
                 }}>✏️</button> */}
@@ -104,6 +110,15 @@ export default function App() {
               handleDeleteTask={handleDeleteTask}
               handleDeleteCancel={handleDeleteCancel}
             />
+          </Modal>
+        )}
+        {currentTask && (
+          <Modal
+            open={isOpenCheck}
+            setIsOpen={setIsOpenCheck}
+            title="Check Task"
+          >
+            <p>Check task</p>
           </Modal>
         )}
       </main>
