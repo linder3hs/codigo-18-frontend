@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputTask, Modal } from "./components";
+import { InputTask, Modal, UpdateForm } from "./components";
 import { tasks, saveTasksInLocalStorage } from "./utils";
 
 export default function App() {
@@ -68,12 +68,12 @@ export default function App() {
           ))}
         </section>
         {currentTask && (
-          <Modal
-            open={isOpen}
-            currentTask={currentTask}
-            setIsOpen={setIsOpen}
-            handleUpdateTask={handleUpdateTask}
-          />
+          <Modal open={isOpen} setIsOpen={setIsOpen} title="Editar tarea">
+            <UpdateForm
+              currentTask={currentTask}
+              handleUpdateTask={handleUpdateTask}
+            />
+          </Modal>
         )}
       </main>
     </>

@@ -1,6 +1,10 @@
 import { tasks } from "../mock";
 
 export function renderInnerTask(task) {
+  // Concepto: Juntar variables + stering => Template String
+  // `` => backtips
+  // ? => Signo de pregunta (cierre)
+  // : => dos puntos
   const taskCreated = `
     <p>${task.text}</p>
     <div class="flex gap-5">
