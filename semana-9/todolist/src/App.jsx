@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { DeleteForm, InputTask, Modal, UpdateForm } from "./components";
+import {
+  DeleteForm,
+  InputTask,
+  Modal,
+  UpdateForm,
+  CheckForm,
+} from "./components";
 import { tasks, saveTasksInLocalStorage } from "./utils";
 import { v4 as uuidv4 } from "uuid";
 
@@ -53,6 +59,14 @@ export default function App() {
     setIsOpen(false);
   };
 
+  const handleCheckTask = (task) => {
+    const searchTask = listTasks.find((element) => element.id === task.id);
+    searchTask.status = 2;
+
+    saveTasksInLocalStorage(listTasks);
+    setIsOpenCheck(false);
+  };
+
   const handleDeleteTask = (task) => {
     const filteredTasks = listTasks.filter((element) => element.id !== task.id);
     saveTasksInLocalStorage(filteredTasks);
@@ -61,6 +75,7 @@ export default function App() {
   };
 
   const handleDeleteCancel = () => setIsOpenDelete(false);
+  const handleCheckCancel = () => setIsOpenCheck(false);
 
   return (
     <>
@@ -78,16 +93,17 @@ export default function App() {
               id="task-$"
             >
               <p>{task.text}</p>
-              <div className="flex gap-5">
-                <button onClick={() => handleCurrentCheckTask(task)}>✅</button>
-                {/* <button onClick={function () {
-                  handleCurrentTask(task)
-                }}>✏️</button> */}
-                <button onClick={() => handleCurrentTask(task)}>✏️</button>
-                <button onClick={() => handleCurrentDeleteTask(task)}>
-                  🗑️
-                </button>
-              </div>
+              {task.status === 1 && (
+                <div className="flex gap-5">
+                  <button onClick={() => handleCurrentCheckTask(task)}>
+                    ✅
+                  </button>
+                  <button onClick={() => handleCurrentTask(task)}>✏️</button>
+                  <button onClick={() => handleCurrentDeleteTask(task)}>
+                    🗑️
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </section>
@@ -116,9 +132,13 @@ export default function App() {
           <Modal
             open={isOpenCheck}
             setIsOpen={setIsOpenCheck}
-            title="Check Task"
+            title="Ver tarea"
           >
-            <p>Check task</p>
+            <CheckForm
+              currentTask={currentTask}
+              handleCheckTask={handleCheckTask}
+              handleCheckCancel={handleCheckCancel}
+            />
           </Modal>
         )}
       </main>
