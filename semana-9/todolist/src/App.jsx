@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DeleteForm,
   InputTask,
@@ -8,20 +8,19 @@ import {
 } from "./components";
 import { tasks, saveTasksInLocalStorage } from "./utils";
 import { v4 as uuidv4 } from "uuid";
+import { getTasks } from "./services/httpAPI";
 
 export default function App() {
-  // Es el estado de la lista de tareas
   const [listTasks, setListTask] = useState(tasks);
-  // Es el estado del input
+
   const [task, setTask] = useState("");
-  // Es para manejar el estado del modal
+  const [currentTask, setCurrentTask] = useState(null);
+
   const [isOpen, setIsOpen] = useState({
     edit: false,
     delete: false,
     check: false,
   });
-
-  const [currentTask, setCurrentTask] = useState(null);
 
   const handleOpen = (modalType) => {
     setIsOpen({
@@ -60,12 +59,11 @@ export default function App() {
   };
 
   const handleUpdateTask = (task, newText) => {
-    // Paso1: Buscar la tarea en mi lista
     const searchTask = listTasks.find((element) => element.id === task.id);
     searchTask.text = newText;
 
     saveTasksInLocalStorage(listTasks);
-    setIsOpen(false);
+    handleOpen("edit");
   };
 
   const handleCheckTask = (task) => {
@@ -82,6 +80,13 @@ export default function App() {
     setListTask(filteredTasks);
     handleOpen("delete");
   };
+
+  useEffect(function () {
+    const fetchTask = async () => {
+      await getTasks();
+    };
+    fetchTask();
+  }, []);
 
   return (
     <>
