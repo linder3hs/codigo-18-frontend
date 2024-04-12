@@ -15,11 +15,20 @@ export default function App() {
   // Es el estado del input
   const [task, setTask] = useState("");
   // Es para manejar el estado del modal
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpenDelete, setIsOpenDelete] = useState(false);
-  const [isOpenCheck, setIsOpenCheck] = useState(false);
-  // Creamos una variable para saber a que tarea le dimos click
+  const [isOpen, setIsOpen] = useState({
+    edit: false,
+    delete: false,
+    check: false,
+  });
+
   const [currentTask, setCurrentTask] = useState(null);
+
+  const handleOpen = (modalType) => {
+    setIsOpen({
+      ...isOpen,
+      [modalType]: !isOpen[modalType],
+    });
+  };
 
   // Funcion que se encarga de capturar el valor del input
   const handleInputTask = (event) => {
@@ -36,18 +45,18 @@ export default function App() {
 
   const handleCurrentTask = (task) => {
     // Paso 1: abrir el modal
-    setIsOpen(true);
+    handleOpen("edit");
     setCurrentTask(task);
   };
 
   const handleCurrentDeleteTask = (task) => {
     setCurrentTask(task);
-    setIsOpenDelete(true);
+    handleOpen("delete");
   };
 
   const handleCurrentCheckTask = (task) => {
     setCurrentTask(task);
-    setIsOpenCheck(true);
+    handleOpen("check");
   };
 
   const handleUpdateTask = (task, newText) => {
@@ -64,18 +73,15 @@ export default function App() {
     searchTask.status = 2;
 
     saveTasksInLocalStorage(listTasks);
-    setIsOpenCheck(false);
+    handleOpen("check");
   };
 
   const handleDeleteTask = (task) => {
     const filteredTasks = listTasks.filter((element) => element.id !== task.id);
     saveTasksInLocalStorage(filteredTasks);
     setListTask(filteredTasks);
-    setIsOpenDelete(false);
+    handleOpen("delete");
   };
-
-  const handleDeleteCancel = () => setIsOpenDelete(false);
-  const handleCheckCancel = () => setIsOpenCheck(false);
 
   return (
     <>
@@ -108,7 +114,11 @@ export default function App() {
           ))}
         </section>
         {currentTask && (
-          <Modal open={isOpen} setIsOpen={setIsOpen} title="Editar tarea">
+          <Modal
+            open={isOpen.edit}
+            handleClose={() => handleOpen("edit")}
+            title="Editar tarea"
+          >
             <UpdateForm
               currentTask={currentTask}
               handleUpdateTask={handleUpdateTask}
@@ -117,27 +127,27 @@ export default function App() {
         )}
         {currentTask && (
           <Modal
-            open={isOpenDelete}
-            setIsOpen={setIsOpenDelete}
+            open={isOpen.delete}
+            handleClose={() => handleOpen("delete")}
             title="Eliminar tarea"
           >
             <DeleteForm
               currentTask={currentTask}
               handleDeleteTask={handleDeleteTask}
-              handleDeleteCancel={handleDeleteCancel}
+              handleDeleteCancel={() => handleOpen("delete")}
             />
           </Modal>
         )}
         {currentTask && (
           <Modal
-            open={isOpenCheck}
-            setIsOpen={setIsOpenCheck}
+            open={isOpen.check}
+            handleClose={() => handleOpen("check")}
             title="Ver tarea"
           >
             <CheckForm
               currentTask={currentTask}
               handleCheckTask={handleCheckTask}
-              handleCheckCancel={handleCheckCancel}
+              handleCheckCancel={() => handleOpen("check")}
             />
           </Modal>
         )}

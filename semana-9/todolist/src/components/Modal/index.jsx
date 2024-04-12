@@ -12,7 +12,7 @@ export default function Modal(props) {
           <div className="bg-white p-5 mx-auto w-full max-w-md border rounded-md">
             <div
               className="w-full text-right cursor-pointer"
-              onClick={() => props.setIsOpen(false)}
+              onClick={props.handleClose}
             >
               ❌
             </div>
