@@ -15,6 +15,30 @@ export async function createTask(task) {
       "Content-Type": "application/json",
     },
   });
-  const data = response.json();
+  const data = await response.json();
   return data;
 }
+
+export async function updateTask(task) {
+  const response = await fetch(`${BASE_URL}/${task.id}`, {
+    method: "PUT",
+    body: JSON.stringify(task),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteTask(task) {
+  const response = await fetch(`${BASE_URL}/${task.id}`, {
+    method: "DELETE",
+    headers: {
+      "Contet-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+  

@@ -6,7 +6,12 @@ import {
   UpdateForm,
   CheckForm,
 } from "./components";
-import { getTasks, createTask } from "./services/httpAPI";
+import {
+  getTasks,
+  createTask,
+  updateTask,
+  deleteTask,
+} from "./services/httpAPI";
 
 export default function App() {
   const [listTasks, setListTask] = useState([]);
@@ -56,9 +61,11 @@ export default function App() {
     handleOpen("check");
   };
 
-  const handleUpdateTask = (task, newText) => {
+  const handleUpdateTask = async (task, newText) => {
     const searchTask = listTasks.find((element) => element.id === task.id);
     searchTask.text = newText;
+
+    await updateTask(searchTask);
 
     handleOpen("edit");
   };

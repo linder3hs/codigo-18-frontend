@@ -8,10 +8,10 @@ export default function UpdateForm(props) {
     setEditedTask(event.target.value);
   };
 
-  const handleFormEditSubmit = (event) => {
+  const handleFormEditSubmit = async (event) => {
     event.preventDefault();
 
-    props.handleUpdateTask(props.currentTask, editedTask);
+    await props.handleUpdateTask(props.currentTask, editedTask);
   };
 
   useEffect(() => {
