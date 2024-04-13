@@ -11,7 +11,7 @@ export default function DeleteForm(props) {
           No, estoy seguro
         </button>
         <button
-          onClick={() => props.handleDeleteTask(props.currentTask)}
+          onClick={async () => await props.handleDeleteTask(props.currentTask)}
           className="bg-green-500 px-4 py-2 text-white rounded-md"
         >
           Si, estoy seguro

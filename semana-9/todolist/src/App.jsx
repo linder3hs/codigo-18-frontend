@@ -70,15 +70,20 @@ export default function App() {
     handleOpen("edit");
   };
 
-  const handleCheckTask = (task) => {
+  const handleCheckTask = async (task) => {
     const searchTask = listTasks.find((element) => element.id === task.id);
     searchTask.status = 2;
+
+    await updateTask(searchTask);
 
     handleOpen("check");
   };
 
-  const handleDeleteTask = (task) => {
+  const handleDeleteTask = async (task) => {
     const filteredTasks = listTasks.filter((element) => element.id !== task.id);
+
+    await deleteTask(task);
+
     setListTask(filteredTasks);
     handleOpen("delete");
   };

@@ -14,7 +14,7 @@ export default function CheckForm(props) {
           No, estoy seguro
         </button>
         <button
-          onClick={() => props.handleCheckTask(props.currentTask)}
+          onClick={async () => await props.handleCheckTask(props.currentTask)}
           className="bg-green-500 px-4 py-2 text-white rounded-md"
         >
           Si, estoy seguro
