@@ -6,8 +6,7 @@ import {
   UpdateForm,
   CheckForm,
 } from "./components";
-import { v4 as uuidv4 } from "uuid";
-import { getTasks } from "./services/httpAPI";
+import { getTasks, createTask } from "./services/httpAPI";
 
 export default function App() {
   const [listTasks, setListTask] = useState([]);
@@ -33,8 +32,9 @@ export default function App() {
     setTask(event.target.value);
   };
 
-  const handleListTask = (task) => {
-    task.id = uuidv4();
+  const handleListTask = async (task) => {
+    await createTask(task);
+
     const newTasks = [...listTasks, task];
     setListTask(newTasks);
     setTask("");
@@ -72,17 +72,17 @@ export default function App() {
 
   const handleDeleteTask = (task) => {
     const filteredTasks = listTasks.filter((element) => element.id !== task.id);
-
     setListTask(filteredTasks);
     handleOpen("delete");
   };
 
+  const fetchTasks = async () => {
+    const response = await getTasks();
+    setListTask(response);
+  };
+
   useEffect(function () {
-    const fetchTask = async () => {
-      const response = await getTasks();
-      setListTask(response);
-    };
-    fetchTask();
+    fetchTasks();
   }, []);
 
   return (

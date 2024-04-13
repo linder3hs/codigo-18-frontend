@@ -6,3 +6,15 @@ export async function getTasks() {
 
   return tasks;
 }
+
+export async function createTask(task) {
+  const response = await fetch(BASE_URL, {
+    method: "POST",
+    body: JSON.stringify(task),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = response.json();
+  return data;
+}
