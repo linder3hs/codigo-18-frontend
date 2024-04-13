@@ -6,12 +6,11 @@ import {
   UpdateForm,
   CheckForm,
 } from "./components";
-import { tasks, saveTasksInLocalStorage } from "./utils";
 import { v4 as uuidv4 } from "uuid";
 import { getTasks } from "./services/httpAPI";
 
 export default function App() {
-  const [listTasks, setListTask] = useState(tasks);
+  const [listTasks, setListTask] = useState([]);
 
   const [task, setTask] = useState("");
   const [currentTask, setCurrentTask] = useState(null);
@@ -38,7 +37,6 @@ export default function App() {
     task.id = uuidv4();
     const newTasks = [...listTasks, task];
     setListTask(newTasks);
-    saveTasksInLocalStorage(newTasks);
     setTask("");
   };
 
@@ -62,7 +60,6 @@ export default function App() {
     const searchTask = listTasks.find((element) => element.id === task.id);
     searchTask.text = newText;
 
-    saveTasksInLocalStorage(listTasks);
     handleOpen("edit");
   };
 
@@ -70,20 +67,20 @@ export default function App() {
     const searchTask = listTasks.find((element) => element.id === task.id);
     searchTask.status = 2;
 
-    saveTasksInLocalStorage(listTasks);
     handleOpen("check");
   };
 
   const handleDeleteTask = (task) => {
     const filteredTasks = listTasks.filter((element) => element.id !== task.id);
-    saveTasksInLocalStorage(filteredTasks);
+
     setListTask(filteredTasks);
     handleOpen("delete");
   };
 
   useEffect(function () {
     const fetchTask = async () => {
-      await getTasks();
+      const response = await getTasks();
+      setListTask(response);
     };
     fetchTask();
   }, []);
