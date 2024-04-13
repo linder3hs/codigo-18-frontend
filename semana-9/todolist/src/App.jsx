@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   DeleteForm,
   InputTask,
@@ -6,15 +6,11 @@ import {
   UpdateForm,
   CheckForm,
 } from "./components";
-import {
-  getTasks,
-  createTask,
-  updateTask,
-  deleteTask,
-} from "./services/httpAPI";
+import { createTask, updateTask, deleteTask } from "./services/httpAPI";
+import useGetTasks from "./hooks/useGetTasks";
 
 export default function App() {
-  const [listTasks, setListTask] = useState([]);
+  const { listTasks, setListTask } = useGetTasks();
 
   const [task, setTask] = useState("");
   const [currentTask, setCurrentTask] = useState(null);
@@ -38,27 +34,16 @@ export default function App() {
   };
 
   const handleListTask = async (task) => {
-    await createTask(task);
+    const newTask = await createTask(task);
 
-    const newTasks = [...listTasks, task];
+    const newTasks = [...listTasks, newTask];
     setListTask(newTasks);
     setTask("");
   };
 
-  const handleCurrentTask = (task) => {
-    // Paso 1: abrir el modal
-    handleOpen("edit");
+  const handleCurrentTask = (task, modalType) => {
+    handleOpen(modalType);
     setCurrentTask(task);
-  };
-
-  const handleCurrentDeleteTask = (task) => {
-    setCurrentTask(task);
-    handleOpen("delete");
-  };
-
-  const handleCurrentCheckTask = (task) => {
-    setCurrentTask(task);
-    handleOpen("check");
   };
 
   const handleUpdateTask = async (task, newText) => {
@@ -88,15 +73,6 @@ export default function App() {
     handleOpen("delete");
   };
 
-  const fetchTasks = async () => {
-    const response = await getTasks();
-    setListTask(response);
-  };
-
-  useEffect(function () {
-    fetchTasks();
-  }, []);
-
   return (
     <>
       <main className="max-w-md mx-auto p-6">
@@ -110,18 +86,15 @@ export default function App() {
             <div
               key={task.id}
               className="flex justify-between px-4 mb-3 py-3 bg-white rounded-md"
-              id="task-$"
             >
               <p>{task.text}</p>
               {task.status === 1 && (
                 <div className="flex gap-5">
-                  <button onClick={() => handleCurrentCheckTask(task)}>
+                  <button onClick={() => handleCurrentTask(task, "check")}>
                     ✅
                   </button>
-                  <button onClick={() => handleCurrentTask(task)}>✏️</button>
-                  <button onClick={() => handleCurrentDeleteTask(task)}>
-                    🗑️
-                  </button>
+                  <button onClick={() => handleCurrentTask(task, "edit")}>✏️</button>
+                  <button onClick={() => handleCurrentTask(task, "delete")}>🗑️</button>
                 </div>
               )}
             </div>
