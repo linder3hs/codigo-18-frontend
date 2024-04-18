@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createUser } from "../../services/firebase";
 
 export default function Login() {
   const [values, setValues] = useState({
@@ -14,9 +15,9 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(values);
+    await createUser(values.email, values.password);
   };
 
   return (
