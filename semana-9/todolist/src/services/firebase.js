@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlWDKtkbgcHds1vyO13xev36wCI-NbCaM",
@@ -15,7 +16,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+const storage = getStorage(app);
 
 // function to create an user
 export async function createUser(email, password) {
@@ -43,6 +46,21 @@ export async function signIn(email, password) {
     );
 
     return authentication.user;
+  } catch (error) {
+    console.log(error.code);
+    console.log(error.message);
+    return null;
+  }
+}
+
+export async function storeFile(file) {
+  try {
+    const storageRef = ref(storage, `images/${file.name}`);
+
+    const snapshot = await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(snapshot.ref);
+
+    return url;
   } catch (error) {
     console.log(error.code);
     console.log(error.message);
