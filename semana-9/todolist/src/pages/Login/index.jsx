@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../../services/firebase";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [values, setValues] = useState({
@@ -22,7 +23,7 @@ export default function Login() {
 
   return (
     <>
-      <section className="max-w-md m-auto flex items-center justify-center h-[100vh]">
+      <section className="max-w-md m-auto flex flex-col items-center justify-center h-[100vh]">
         <div className="bg-white p-6 rounded-md w-full md:w-md">
           <div className="my-5">
             <h2 className="text-center text-2xl font-bold">👋 Hola de nuevo</h2>
@@ -57,6 +58,14 @@ export default function Login() {
               </button>
             </div>
           </form>
+        </div>
+        <div className="text-center mt-5">
+          <p className="text-sm">
+            ¿No tienes una cuenta?{" "}
+            <Link className="underline" to={"/sign-up"}>
+              Regístrate
+            </Link>
+          </p>
         </div>
       </section>
     </>
