@@ -1,3 +1,5 @@
+import { TextField } from "../../components";
+
 export default function SignUp() {
   return (
     <>
@@ -7,22 +9,22 @@ export default function SignUp() {
             <h2 className="text-center text-2xl font-bold">🤗 Bienvenido</h2>
           </div>
           <form className="my-5">
-            <div className="my-5">
-              <input
-                type="email"
-                name="email"
-                placeholder="Ingrese su correo"
-                className="px-3 py-2 rounded-md border outline-none w-full"
-              />
-            </div>
-            <div className="my-5">
-              <input
-                type="password"
-                name="password"
-                placeholder="Ingrese su password"
-                className="px-3 py-2 rounded-md border outline-none w-full"
-              />
-            </div>
+            <TextField
+              type="text"
+              name="fullName"
+              placeholder="Ingrese su nombre completo"
+            />
+            <TextField
+              type="email"
+              name="email"
+              placeholder="Ingrese su correo"
+            />
+            <TextField
+              type="password"
+              name="password"
+              placeholder="Ingrese su password"
+            />
+
             <div className="my-5">
               <button
                 className="border border-green-400 text-black font-bold w-full px-3 py-2 rounded-md
