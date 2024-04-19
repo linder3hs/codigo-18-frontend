@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { TextField } from "../../components";
-import { storeFile } from "../../services/firebase";
+import { createUser, storeFile, updateUser } from "../../services/firebase";
 
 export default function SignUp() {
   const [values, setValues] = useState({
@@ -22,7 +22,13 @@ export default function SignUp() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await storeFile(event.target[4].files[0]);
+    const url = await storeFile(event.target[4].files[0]);
+
+    // create al usuario en firebase
+    // recuerden que el usuario se crea solo con email y password
+    await createUser(values.email, values.password);
+    // actualizamos al usuario que hemos creado con su nombre y su foto de perfil
+    await updateUser(values.fullName, url);
   };
 
   return (

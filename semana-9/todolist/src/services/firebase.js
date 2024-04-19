@@ -3,6 +3,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
 
@@ -58,6 +59,7 @@ export async function storeFile(file) {
     const storageRef = ref(storage, `images/${file.name}`);
 
     const snapshot = await uploadBytes(storageRef, file);
+
     const url = await getDownloadURL(snapshot.ref);
 
     return url;
@@ -66,4 +68,19 @@ export async function storeFile(file) {
     console.log(error.message);
     return null;
   }
+}
+
+export function getCurrentUser() {
+  return auth.currentUser;
+}
+
+export async function updateUser(name, photoURL) {
+  const currentUser = auth.currentUser;
+
+  const user = await updateProfile(currentUser, {
+    displayName: name,
+    photoURL: photoURL,
+  });
+
+  return user;
 }
