@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -38,7 +39,17 @@ export async function signIn(email, password) {
 }
 
 export function getCurrentUser() {
-  return auth.currentUser;
+  return new Promise((resolve, reject) => {
+    const observer = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        resolve(user);
+      } else {
+        reject("User not found");
+      }
+    });
+
+    return observer;
+  });
 }
 
 export async function updateUser(name, photoURL) {
