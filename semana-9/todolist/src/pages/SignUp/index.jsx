@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { TextField } from "../../components";
-import { createUser, storeFile, updateUser } from "../../services/firebase";
+import { createUser, updateUser } from "../../services/auth";
+import { storeFile } from "../../services/storage";
 
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);

@@ -1,11 +1,6 @@
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBlWDKtkbgcHds1vyO13xev36wCI-NbCaM",
@@ -18,69 +13,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-const storage = getStorage(app);
-
-// function to create an user
-export async function createUser(email, password) {
-  try {
-    const authentication = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-    return authentication.user;
-  } catch (error) {
-    console.log(error.code);
-    console.log(error.message);
-    return null;
-  }
-}
-
-export async function signIn(email, password) {
-  try {
-    const authentication = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-    return authentication.user;
-  } catch (error) {
-    console.log(error.code);
-    console.log(error.message);
-    return null;
-  }
-}
-
-export async function storeFile(file) {
-  try {
-    const storageRef = ref(storage, `images/${file.name}`);
-
-    const snapshot = await uploadBytes(storageRef, file);
-
-    const url = await getDownloadURL(snapshot.ref);
-
-    return url;
-  } catch (error) {
-    console.log(error.code);
-    console.log(error.message);
-    return null;
-  }
-}
-
-export function getCurrentUser() {
-  return auth.currentUser;
-}
-
-export async function updateUser(name, photoURL) {
-  const currentUser = auth.currentUser;
-
-  const user = await updateProfile(currentUser, {
-    displayName: name,
-    photoURL: photoURL,
-  });
-
-  return user;
-}
+export const auth = getAuth(app);
+export const storage = getStorage(app);

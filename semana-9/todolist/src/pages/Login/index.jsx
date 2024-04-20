@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createUser } from "../../services/firebase";
+import { createUser } from "../../services/auth";
 import { Link } from "react-router-dom";
 import { TextField } from "../../components";
 
