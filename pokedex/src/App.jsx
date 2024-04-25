@@ -1,7 +1,14 @@
+import { useState } from "react";
 import logo from "./assets/logo.svg";
 import pokeSearch from "./assets/poke-search.svg";
 
 function App() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputValue = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <>
       <main className="p-6">
@@ -15,6 +22,7 @@ function App() {
             <input
               type="text"
               placeholder="Search"
+              onChange={handleInputValue}
               className="w-full outline-none"
             />
           </div>
