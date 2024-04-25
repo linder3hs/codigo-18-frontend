@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { createUser } from "../../services/auth";
+import { signIn } from "../../services/auth";
 import { Link } from "react-router-dom";
 import { TextField } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -19,7 +22,12 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await createUser(values.email, values.password);
+    try {
+      await signIn(values.email, values.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

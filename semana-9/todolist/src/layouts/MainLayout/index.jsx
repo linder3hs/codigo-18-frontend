@@ -26,11 +26,11 @@ export default function MainLayout() {
       <nav className="bg-white py-2 px-12">
         <div className="flex items-center gap-5 justify-end">
           <div>
-            <p className="font-bold">{user.displayName}</p>
-            <p className="text-xs font-light">{user.email}</p>
+            <p className="font-bold">{user?.displayName}</p>
+            <p className="text-xs font-light">{user?.email}</p>
           </div>
           <img
-            src={user.photoURL}
+            src={user?.photoURL}
             className="rounded-full w-[40px] h-[40px] object-cover"
             alt=""
           />
