@@ -2,6 +2,8 @@ import logo from "./assets/logo.svg";
 import pokeSearch from "./assets/poke-search.svg";
 import useGetPokemon from "./hooks/useGetPokemon";
 import useInputValue from "./hooks/useInputValue";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { inputValue, handleInputValue } = useInputValue();
@@ -10,6 +12,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <main className="p-6">
         <div className="flex items-center gap-1">
           <img src={logo} width={40} alt="" />

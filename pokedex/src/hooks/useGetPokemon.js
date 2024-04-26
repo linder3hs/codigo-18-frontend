@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function useGetPokemon(inputValue) {
   const [pokemon, setPokemon] = useState(null);
@@ -8,7 +9,10 @@ export default function useGetPokemon(inputValue) {
     const response = await fetch(url);
 
     if (!response.ok) {
-      alert("Hubo un error");
+      toast.error("Hubo un error", {
+        autoClose: true,
+        closeButton: true,
+      });
       return;
     }
 
