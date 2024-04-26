@@ -1,16 +1,12 @@
-import { useState } from "react";
 import logo from "./assets/logo.svg";
 import pokeSearch from "./assets/poke-search.svg";
 import useGetPokemon from "./hooks/useGetPokemon";
+import useInputValue from "./hooks/useInputValue";
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
+  const { inputValue, handleInputValue } = useInputValue();
 
-  const result = useGetPokemon(inputValue);
-
-  const handleInputValue = (event) => {
-    setInputValue(event.target.value);
-  };
+  const { pokemon, fetchPokemon } = useGetPokemon(inputValue);
 
   return (
     <>
@@ -31,7 +27,7 @@ function App() {
           </div>
           <div>
             <button
-              onClick={result.fetchPokemon}
+              onClick={fetchPokemon}
               className="bg-white px-3 py-2 rounded-lg text-primary font-semibold"
             >
               Buscar
@@ -43,15 +39,12 @@ function App() {
             <div className="flex items-center justify-center gap-5">
               <img
                 width={150}
-                src={
-                  result.pokemon?.sprites.other["official-artwork"]
-                    .front_default
-                }
+                src={pokemon?.sprites.other["official-artwork"].front_default}
                 alt=""
               />
               <div>
                 <ul>
-                  {result.pokemon?.types.map((type) => (
+                  {pokemon?.types.map((type) => (
                     <li key={type.slot}>{type.type.name}</li>
                   ))}
                 </ul>
@@ -59,7 +52,7 @@ function App() {
             </div>
             <div className="mt-3 bg-gray-200 flex justify-center items-center h-[60px] rounded-b-lg">
               <h2 className="text-center font-semibold text-2xl">
-                {result.pokemon?.name}
+                {pokemon?.name}
               </h2>
             </div>
           </div>
