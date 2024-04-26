@@ -1,28 +1,15 @@
 import { useState } from "react";
 import logo from "./assets/logo.svg";
 import pokeSearch from "./assets/poke-search.svg";
+import useGetPokemon from "./hooks/useGetPokemon";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
 
-  const [pokemon, setPokemon] = useState(null);
+  const result = useGetPokemon(inputValue);
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
-  };
-
-  const fetchPokemon = async () => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${inputValue}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      alert("Hubo un error");
-      return;
-    }
-
-    const data = await response.json();
-
-    setPokemon(data);
   };
 
   return (
@@ -44,7 +31,7 @@ function App() {
           </div>
           <div>
             <button
-              onClick={fetchPokemon}
+              onClick={result.fetchPokemon}
               className="bg-white px-3 py-2 rounded-lg text-primary font-semibold"
             >
               Buscar
@@ -56,19 +43,23 @@ function App() {
             <div className="flex items-center justify-center gap-5">
               <img
                 width={150}
-                src={pokemon?.sprites.other["official-artwork"].front_default}
+                src={
+                  result.pokemon?.sprites.other["official-artwork"]
+                    .front_default
+                }
                 alt=""
               />
               <div>
                 <ul>
-                  <li>Grass</li>
-                  <li>Poison</li>
+                  {result.pokemon?.types.map((type) => (
+                    <li key={type.slot}>{type.type.name}</li>
+                  ))}
                 </ul>
               </div>
             </div>
             <div className="mt-3 bg-gray-200 flex justify-center items-center h-[60px] rounded-b-lg">
               <h2 className="text-center font-semibold text-2xl">
-                {pokemon?.name}
+                {result.pokemon?.name}
               </h2>
             </div>
           </div>
