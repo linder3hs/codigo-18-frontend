@@ -1,4 +1,3 @@
-import pokeSearch from "./assets/poke-search.svg";
 import useGetPokemon from "./hooks/useGetPokemon";
 import useInputValue from "./hooks/useInputValue";
 import { ToastContainer } from "react-toastify";
