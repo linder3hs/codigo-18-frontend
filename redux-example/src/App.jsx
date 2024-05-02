@@ -1,8 +1,13 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
+  const counter = useSelector(function (state) {
+    return state.counter.value;
+  });
+
   return (
     <>
       <div>
@@ -15,7 +20,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button>count is</button>
+        <button>count is {counter}</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
