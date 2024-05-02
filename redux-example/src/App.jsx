@@ -3,11 +3,10 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increment } from "./app/slices/counterSlice";
+import Header from "./components/Header";
 
 function App() {
-  const counter = useSelector(function (state) {
-    return state.counter.value;
-  });
+  const counter = useSelector((state) => state.counter.value);
 
   // Para poder una funcion creada en un slice debe importa a useDispatch (hook)
   // useDispatch: Permite realizar la ejecucion de una funcion:
@@ -16,6 +15,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
