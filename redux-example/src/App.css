@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+input {
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.tasks {
+  display: flex;
+  border: solid;
+  margin-top: 20px;
+}

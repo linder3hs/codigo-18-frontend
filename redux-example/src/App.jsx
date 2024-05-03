@@ -4,6 +4,7 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, setValue } from "./app/slices/counterSlice";
 import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 
 function App() {
   const counter = useSelector((state) => state.counter.value);
@@ -48,6 +49,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Tasks />
     </>
   );
 }
