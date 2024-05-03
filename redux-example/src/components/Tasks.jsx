@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 export default function Tasks() {
+  const tasks = useSelector((state) => state.task.tasks);
+
   return (
     <>
       <form action="">
@@ -6,7 +10,11 @@ export default function Tasks() {
         <button>Crear Tarea</button>
       </form>
       <div className="tasks">
-        <p>Lista de tareas</p>
+        {tasks.map((task) => (
+          <div key={task.id}>
+            <p>{task.text}</p>
+          </div>
+        ))}
       </div>
     </>
   );
