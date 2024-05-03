@@ -11,7 +11,11 @@ const counterSlice = createSlice({
       currentState.value += 1;
     },
     decrement: (currentState) => {
-      console.log(currentState);
+      currentState.value -= 1;
+    },
+    setValue: (currentState, action) => {
+      console.log(action.payload);
+      currentState.value = action.payload.newValue;
     },
   },
 });
@@ -21,7 +25,7 @@ const counterSlice = createSlice({
 // export const descrementReducers = counterSlice.actions.decrement;
 
 // Usamos destrucuracion para evitar crear tantas variables
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, setValue } = counterSlice.actions;
 
 // Para poder usar esto dentro del store, debo exportarlo como un reducer
 export const counterSliceReducer = counterSlice.reducer;

@@ -11,6 +11,7 @@ export default function MainLayout() {
   const fetchUser = async () => {
     try {
       const currentUser = await getCurrentUser();
+      console.log(currentUser.uid);
       setUser(currentUser);
     } catch (error) {
       navigate("/login");

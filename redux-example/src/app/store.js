@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { counterSliceReducer } from "./slices/counterSlice";
+import { userReducer } from "./slices/userSlice";
 
 // Este es el store: Es un conjuntos de slices (para poder mostrar la informacion)
 // requiero usar el reducer de los slice
@@ -9,5 +10,6 @@ import { counterSliceReducer } from "./slices/counterSlice";
 export const globalStore = configureStore({
   reducer: {
     counter: counterSliceReducer,
+    user: userReducer,
   },
 });

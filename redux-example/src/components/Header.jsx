@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   const value = useSelector((state) => state.counter.value);
+  const user = useSelector((state) => state.user);
 
   return (
     <nav>
@@ -13,6 +14,9 @@ export default function Header() {
       </ul>
       <div>
         <h2>El contador actual es {value}</h2>
+        <p>
+          {user.name} {user.lastName}
+        </p>
       </div>
     </nav>
   );

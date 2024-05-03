@@ -2,11 +2,12 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from "./app/slices/counterSlice";
+import { increment, decrement, setValue } from "./app/slices/counterSlice";
 import Header from "./components/Header";
 
 function App() {
   const counter = useSelector((state) => state.counter.value);
+  const user = useSelector((state) => state.user);
 
   // Para poder una funcion creada en un slice debe importa a useDispatch (hook)
   // useDispatch: Permite realizar la ejecucion de una funcion:
@@ -24,14 +25,25 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>
+        Nombre: {user.name} {user.lastName}
+      </h1>
       <div className="card">
         <button onClick={() => dispatch(increment())}>
           count is {counter}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button onClick={() => dispatch(decrement())}>restar</button>
+        <button
+          onClick={() =>
+            dispatch(
+              setValue({
+                newValue: 99,
+              })
+            )
+          }
+        >
+          Boton con valor custom
+        </button>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
