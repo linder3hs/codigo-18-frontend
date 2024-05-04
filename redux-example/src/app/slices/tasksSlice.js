@@ -3,17 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
-    tasks: [
-      {
-        id: 1,
-        text: "Tarea 1",
-      },
-    ],
+    tasks: localStorage.getItem("tasks")
+      ? JSON.parse(localStorage.getItem("tasks"))
+      : [],
   },
   reducers: {
     addTask: (state, action) => {
       // action : {type: "", payload: {}}
       state.tasks.push(action.payload);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
   },
 });
